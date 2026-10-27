@@ -1,0 +1,615 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="News, articles, interviews, and public features celebrating Archbishop Dr. Emmah Gospel Isong's 62nd birthday."
+    />
+    <script src="navigation.js" defer></script>
+    <title>Media Recognition &amp; Birthday Features — Archbishop Emmah Gospel Isong</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --ink: #080807;
+        --cream: #f5f1e9;
+        --muted: #d8d2c8;
+        --gold: #d6ad50;
+        --bright-gold: #f4d98e;
+        --line: #8c6b2d;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--ink);
+        color: var(--cream);
+        font-family: Georgia, "Times New Roman", serif;
+        line-height: 1.55;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .site-header {
+        min-height: 58px;
+        border-top: 2px solid #75551c;
+        background: #090909;
+      }
+
+      .nav-wrap {
+        width: min(1100px, calc(100% - 48px));
+        min-height: 56px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+      }
+
+      .brand,
+      .nav-links,
+      .eyebrow,
+      .article-label,
+      .publisher {
+        font-family: Arial, Helvetica, sans-serif;
+        text-transform: uppercase;
+      }
+
+      .brand {
+        color: var(--bright-gold);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 20px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 10px;
+        letter-spacing: 1px;
+      }
+
+      .nav-links a {
+        transition: color 160ms ease;
+      }
+
+      .nav-links a:hover,
+      .nav-links a:focus-visible,
+      .nav-links a[aria-current="page"] {
+        color: var(--bright-gold);
+      }
+
+      .hero {
+        position: relative;
+        overflow: hidden;
+        padding: 22px 24px 18px;
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        background:
+          radial-gradient(ellipse at 82% 45%, rgba(166, 112, 33, 0.3), transparent 34%),
+          radial-gradient(ellipse at 10% 110%, rgba(112, 75, 24, 0.25), transparent 38%),
+          linear-gradient(110deg, #0c0b09, #171108 50%, #090908);
+        text-align: center;
+      }
+
+      .hero::before,
+      .hero::after {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: min(18vw, 210px);
+        content: "";
+        opacity: 0.35;
+        pointer-events: none;
+      }
+
+      .hero::before {
+        left: 0;
+        background: repeating-linear-gradient(130deg, transparent 0 12px, rgba(214, 173, 80, 0.18) 13px 15px, transparent 16px 25px);
+        mask-image: linear-gradient(90deg, #000, transparent);
+      }
+
+      .hero::after {
+        right: 0;
+        background: repeating-linear-gradient(145deg, transparent 0 15px, rgba(214, 173, 80, 0.2) 16px 18px, transparent 19px 30px);
+        mask-image: linear-gradient(270deg, #000, transparent);
+      }
+
+      .hero-inner,
+      main {
+        width: min(1100px, calc(100% - 48px));
+        margin: 0 auto;
+      }
+
+      .hero-inner {
+        position: relative;
+        z-index: 1;
+      }
+
+      .eyebrow {
+        margin: 0 0 6px;
+        color: var(--gold);
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 2px;
+      }
+
+      h1 {
+        margin: 0;
+        color: var(--bright-gold);
+        font-size: clamp(36px, 5vw, 52px);
+        font-weight: 700;
+        letter-spacing: -1.2px;
+        line-height: 1.05;
+      }
+
+      .hero-copy {
+        max-width: 650px;
+        margin: 13px auto 0;
+        color: #e4e0da;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 15px;
+        line-height: 1.5;
+      }
+
+      .ornament {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        width: 220px;
+        margin: 12px auto 0;
+        color: var(--gold);
+      }
+
+      .ornament::before,
+      .ornament::after {
+        width: 100%;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, var(--gold));
+        content: "";
+      }
+
+      .ornament::after {
+        transform: rotate(180deg);
+      }
+
+      .ornament span {
+        font-size: 19px;
+        line-height: 1;
+      }
+
+      main {
+        min-height: calc(100vh - 290px);
+        padding: 28px 0 54px;
+      }
+
+      .featured-card {
+        display: grid;
+        grid-template-columns: minmax(0, 0.83fr) minmax(0, 1fr);
+        align-items: center;
+        gap: 34px;
+        padding: 16px;
+        border: 1px solid var(--gold);
+        border-radius: 12px;
+        background:
+          radial-gradient(ellipse at 100% 0%, rgba(99, 72, 26, 0.1), transparent 48%),
+          #090909;
+        box-shadow: 0 0 0 1px rgba(214, 173, 80, 0.13) inset;
+      }
+
+      .featured-card + .featured-card {
+        margin-top: 22px;
+      }
+
+      .featured-image {
+        display: block;
+        width: 100%;
+        aspect-ratio: 1.08 / 1;
+        border: 1px solid var(--gold);
+        border-radius: 7px;
+        object-fit: cover;
+        object-position: center 36%;
+      }
+
+      .article-copy {
+        padding: 10px 12px 10px 0;
+      }
+
+      .article-label,
+      .publisher {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      .article-label {
+        margin: 0 0 12px;
+        color: var(--bright-gold);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+      }
+
+      .article-label svg,
+      .publisher svg,
+      .article-url svg {
+        flex: 0 0 auto;
+        color: var(--gold);
+      }
+
+      h2 {
+        margin: 0 0 12px;
+        color: var(--bright-gold);
+        font-size: clamp(29px, 3.4vw, 40px);
+        font-weight: 700;
+        letter-spacing: -0.8px;
+        line-height: 1.12;
+      }
+
+      .publisher {
+        margin: 0 0 12px;
+        color: var(--cream);
+        font-size: 14px;
+      }
+
+      .description {
+        max-width: 540px;
+        margin: 0 0 16px;
+        color: var(--muted);
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 16px;
+        line-height: 1.55;
+      }
+
+      .article-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        min-height: 44px;
+        padding: 9px 22px;
+        border: 2px solid var(--gold);
+        border-radius: 999px;
+        color: var(--bright-gold);
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 14px;
+        font-weight: 700;
+        transition: background-color 160ms ease, color 160ms ease;
+      }
+
+      .article-button:hover,
+      .article-button:focus-visible {
+        background: var(--bright-gold);
+        color: #14100a;
+      }
+
+      .article-button svg {
+        width: 17px;
+        height: 17px;
+      }
+
+      .article-url {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        margin: 12px 0 0;
+        color: #d3cec5;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 12px;
+        overflow-wrap: anywhere;
+      }
+
+      .article-url a:hover,
+      .article-url a:focus-visible {
+        color: var(--bright-gold);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+
+      footer {
+        padding: 18px 24px;
+        color: #9f998e;
+        background: #090909;
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 10px;
+      }
+
+      footer strong {
+        color: var(--bright-gold);
+      }
+
+      @media (max-width: 760px) {
+        .nav-wrap {
+          width: calc(100% - 36px);
+          flex-wrap: wrap;
+          gap: 10px 16px;
+          padding: 12px 0;
+        }
+
+        .nav-links {
+          flex-basis: 100%;
+          flex-wrap: wrap;
+          gap: 10px 16px;
+        }
+
+        .featured-card {
+          grid-template-columns: 1fr;
+          gap: 18px;
+        }
+
+        .featured-image {
+          aspect-ratio: 1.35 / 1;
+        }
+
+        .article-copy {
+          padding: 0 4px 6px;
+        }
+      }
+
+      @media (max-width: 420px) {
+        .hero-inner,
+        main {
+          width: calc(100% - 32px);
+        }
+
+        .hero {
+          padding: 28px 16px 20px;
+        }
+
+        h1 {
+          font-size: 36px;
+        }
+
+        .hero-copy {
+          font-size: 14px;
+        }
+
+        .featured-card {
+          padding: 11px;
+        }
+
+        .description {
+          font-size: 15px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          scroll-behavior: auto !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+
+      .menu-toggle {
+        display: none;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        min-height: 40px;
+        padding: 8px 11px;
+        border: 1px solid var(--gold);
+        border-radius: 2px;
+        background: #11100d;
+        color: var(--bright-gold);
+        font: 700 10px Arial, Helvetica, sans-serif;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        cursor: pointer;
+      }
+
+      .menu-icon,
+      .menu-icon::before,
+      .menu-icon::after {
+        display: block;
+        width: 17px;
+        height: 2px;
+        background: currentColor;
+        transition: transform 160ms ease;
+      }
+      .menu-icon { position: relative; }
+      .menu-icon::before,
+      .menu-icon::after {
+        position: absolute;
+        left: 0;
+        content: "";
+      }
+      .menu-icon::before { top: -5px; }
+      .menu-icon::after { top: 5px; }
+      .menu-toggle[aria-expanded="true"] .menu-icon { background: transparent; }
+      .menu-toggle[aria-expanded="true"] .menu-icon::before {
+        top: 0;
+        transform: rotate(45deg);
+      }
+      .menu-toggle[aria-expanded="true"] .menu-icon::after {
+        top: 0;
+        transform: rotate(-45deg);
+      }
+
+      .menu-toggle:focus-visible,
+      .nav-links a:focus-visible {
+        outline: 2px solid var(--bright-gold);
+        outline-offset: 3px;
+      }
+
+      @media (max-width: 760px) {
+        .site-header { height: auto; }
+        .nav-wrap {
+          position: relative;
+          width: calc(100% - 36px);
+          min-height: 58px;
+          flex-wrap: wrap;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+          gap: 10px;
+          padding: 9px 0;
+        }
+        .js .menu-toggle { display: inline-flex; }
+        .nav-links {
+          flex-basis: 100%;
+          flex-direction: column;
+          gap: 0;
+          padding: 4px 0 2px;
+          border-top: 1px solid #302719;
+        }
+        .nav-links a {
+          display: block;
+          padding: 12px 4px;
+          border-bottom: 1px solid rgba(214, 173, 80, 0.13);
+        }
+        .js .nav-links:not(.is-open) { display: none; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav-wrap" aria-label="Main navigation">
+        <a class="brand" href="index.html#top">A Birthday Tribute</a>
+        <button class="menu-toggle" type="button" aria-controls="primary-navigation" aria-expanded="false" aria-label="Open navigation menu">
+          <span class="menu-icon" aria-hidden="true"></span>
+          Menu
+        </button>
+        <div class="nav-links" id="primary-navigation">
+          <a href="index.html#tribute">Tribute</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="media.html" aria-current="page">Media</a>
+          <a href="messages.html">Messages</a>
+          <a href="letter.html">Letter</a>
+          <a href="index.html#blessing">Blessing</a>
+        </div>
+      </nav>
+    </header>
+
+    <section class="hero" aria-labelledby="page-title">
+      <div class="hero-inner">
+        <p class="eyebrow">In the news</p>
+        <h1 id="page-title">Media Recognition &amp;<br />Birthday Features</h1>
+        <p class="hero-copy">
+          News, articles, interviews and public features celebrating
+          Archbishop Dr. Emmah Gospel Isong on his 62nd birthday.
+        </p>
+        <div class="ornament" aria-hidden="true"><span>◇</span></div>
+      </div>
+    </section>
+
+    <main>
+      <article class="featured-card" aria-labelledby="featured-title">
+        <img
+          class="featured-image"
+          src="assets/media-feature.png"
+          alt="Featured photograph of Archbishop Dr. Emmah Gospel Isong"
+        />
+        <div class="article-copy">
+          <p class="article-label">
+            <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <rect x="3" y="5" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.8" />
+              <path d="M7 3v4M17 3v4M3 10h18M7 14h4M7 17h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+            </svg>
+            Featured Article
+          </p>
+          <h2 id="featured-title">Why I’m Still Young At 62 – Emmah Isong</h2>
+          <p class="publisher">
+            <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <rect x="3" y="4" width="18" height="17" rx="2" stroke="currentColor" stroke-width="1.8" />
+              <path d="M7 8h10M7 12h3M14 12h3M7 16h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+            </svg>
+            TNN Newspaper
+          </p>
+          <p class="description">
+            In this feature, Archbishop Dr. Emmah Gospel Isong speaks about his
+            life, purpose and what keeps him young at 62, as reported by TNN Newspaper.
+          </p>
+          <a
+            class="article-button"
+            href="https://tnnonline.info/why-im-still-young-at-62-emmah-isong/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+              <path d="M14 4h6v6M20 4l-9 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M18 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg>
+            Read Full Article
+            <span aria-hidden="true">→</span>
+          </a>
+          <p class="article-url">
+            <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M10 13.5a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1.7 1.7M14 10.5a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1.7-1.7" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg>
+            <a href="https://tnnonline.info/why-im-still-young-at-62-emmah-isong/" target="_blank" rel="noopener noreferrer">
+              https://tnnonline.info/why-im-still-young-at-62-emmah-isong/
+            </a>
+          </p>
+        </div>
+      </article>
+      <article class="featured-card" aria-labelledby="faith-public-life-title">
+        <img
+          class="featured-image"
+          src="assets/media-faith-public-life.png"
+          alt="Archbishop Emmah Isong greeting a public official at a church gathering"
+          loading="lazy"
+        />
+        <div class="article-copy">
+          <p class="article-label">
+            <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <rect x="3" y="5" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.8" />
+              <path d="M7 3v4M17 3v4M3 10h18M7 14h4M7 17h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+            </svg>
+            Featured Article
+          </p>
+          <h2 id="faith-public-life-title">Archbishop Emmah Isong At Where Faith Meets Public Life</h2>
+          <p class="publisher">
+            <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <rect x="3" y="4" width="18" height="17" rx="2" stroke="currentColor" stroke-width="1.8" />
+              <path d="M7 8h10M7 12h3M14 12h3M7 16h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+            </svg>
+            The Southern Examiner
+          </p>
+          <p class="description">
+            Read The Southern Examiner’s feature on Archbishop Emmah Isong and the
+            place where faith meets public life.
+          </p>
+          <a
+            class="article-button"
+            href="https://thesouthernexaminer.com/archbishop-emmah-isong-at-where-faith-meets-public-life-p18028-227.htm"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+              <path d="M14 4h6v6M20 4l-9 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M18 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg>
+            Read Full Article
+            <span aria-hidden="true">→</span>
+          </a>
+          <p class="article-url">
+            <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M10 13.5a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1.7 1.7M14 10.5a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1.7-1.7" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg>
+            <a href="https://thesouthernexaminer.com/archbishop-emmah-isong-at-where-faith-meets-public-life-p18028-227.htm" target="_blank" rel="noopener noreferrer">
+              https://thesouthernexaminer.com/archbishop-emmah-isong-at-where-faith-meets-public-life-p18028-227.htm
+            </a>
+          </p>
+        </div>
+      </article>
+    </main>
+
+    <footer>
+      Created with love in celebration of <strong>Archbishop Emmah Gospel Isong</strong> ·
+      <time datetime="2026-10-26">26 October 2026</time>
+    </footer>
+  </body>
+</html>

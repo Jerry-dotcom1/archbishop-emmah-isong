@@ -1,0 +1,684 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Letters of honour and celebration for Archbishop Emmah Gospel Isong's 62nd birthday."
+    />
+    <script src="navigation.js" defer></script>
+    <title>Letters of Honour & Celebration</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --ink: #070706;
+        --ink-2: #0c0b0a;
+        --panel: rgba(10, 12, 13, 0.8);
+        --gold: #d2a85a;
+        --gold-soft: #f1d388;
+        --gold-deep: #8d6927;
+        --line: rgba(197, 153, 78, 0.9);
+        --paper: #efe7dc;
+        --paper-ink: #0c0e0d;
+        --muted: #dbd2c1;
+      }
+
+      * { box-sizing: border-box; }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background:
+          radial-gradient(circle at 18% 18%, rgba(142, 105, 52, 0.28), transparent 28%),
+          radial-gradient(circle at 76% 28%, rgba(147, 101, 45, 0.24), transparent 26%),
+          linear-gradient(90deg, #0a0908 0%, #090907 20%, #0d0d0c 52%, #090907 100%);
+        color: #f7f1e7;
+        font-family: Georgia, "Times New Roman", serif;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .site-header {
+        border-top: 2px solid rgba(188, 145, 72, 0.9);
+        background: rgba(7, 7, 6, 0.9);
+      }
+
+      .nav-wrap {
+        width: min(1170px, calc(100% - 54px));
+        min-height: 58px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+      }
+
+      .brand,
+      .nav-links,
+      .eyebrow {
+        font-family: Arial, Helvetica, sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+      }
+
+      .brand {
+        color: var(--gold-soft);
+        font-size: 11px;
+        font-weight: 700;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 26px;
+        color: rgba(239, 233, 225, 0.8);
+        font-size: 10px;
+        font-weight: 600;
+      }
+
+      .nav-links a {
+        transition: color 160ms ease;
+      }
+
+      .nav-links a:hover,
+      .nav-links a:focus-visible,
+      .nav-links a[aria-current="page"] {
+        color: var(--gold-soft);
+      }
+
+      .page-shell {
+        width: min(1170px, calc(100% - 54px));
+        margin: 0 auto;
+        padding: 24px 0 48px;
+      }
+
+      .hero {
+        position: relative;
+        min-height: 360px;
+        padding: 26px 22px 34px;
+        border-top: 2px solid var(--line);
+        border-right: 1px solid var(--line);
+        border-bottom: 2px solid var(--line);
+        border-left: 1px solid var(--line);
+        background:
+          linear-gradient(90deg, rgba(18, 17, 14, 0.46), rgba(7, 7, 6, 0.18)),
+          radial-gradient(circle at 68% 28%, rgba(125, 92, 42, 0.28), transparent 28%),
+          radial-gradient(circle at 84% 30%, rgba(122, 88, 43, 0.2), transparent 24%),
+          linear-gradient(180deg, rgba(11, 11, 10, 0.8), rgba(8, 9, 9, 0.85));
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(90deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.22) 30%, rgba(0, 0, 0, 0.24) 100%),
+          radial-gradient(circle at 100% 0%, rgba(188, 145, 72, 0.14), transparent 20%);
+        pointer-events: none;
+      }
+
+      .hero-inner {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        place-items: center;
+        min-height: 300px;
+        text-align: center;
+      }
+
+      .ornament {
+        display: grid;
+        place-items: center;
+        width: 52px;
+        height: 52px;
+        margin: 0 auto 18px;
+        border: 2px solid var(--gold);
+        border-radius: 50%;
+        color: var(--gold-soft);
+        font-size: 28px;
+        line-height: 1;
+        opacity: 0.9;
+        box-shadow: inset 0 0 0 1px rgba(255, 217, 138, 0.2);
+      }
+
+      .hero h1 {
+        margin: 0;
+        font-weight: 400;
+        font-size: clamp(44px, 5vw, 76px);
+        letter-spacing: -2.6px;
+        line-height: 0.95;
+        color: #f0e6d9;
+      }
+
+      .hero h1 span {
+        color: var(--gold-soft);
+        font-style: italic;
+        font-weight: 500;
+      }
+
+      .hero-copy {
+        max-width: 830px;
+        margin: 22px auto 0;
+        color: rgba(237, 231, 224, 0.88);
+        font-size: clamp(18px, 2.1vw, 28px);
+        line-height: 1.52;
+        font-style: italic;
+      }
+
+      .featured-wrap {
+        margin-top: 28px;
+        padding: 18px 20px 24px;
+        border: 1px solid var(--line);
+        background: rgba(8, 10, 11, 0.76);
+        box-shadow: inset 0 0 0 1px rgba(148, 110, 40, 0.38);
+      }
+
+      .featured-label {
+        display: inline-block;
+        margin: 0 0 14px;
+        padding: 12px 18px 10px;
+        background: linear-gradient(90deg, rgba(216, 175, 88, 0.95), rgba(240, 208, 134, 0.9));
+        color: #0e0d0b;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 12px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 1.4px;
+        clip-path: polygon(0 0, 100% 0, 95% 100%, 0 100%);
+      }
+
+      .featured-card {
+        display: grid;
+        grid-template-columns: 1.05fr 1.15fr;
+        gap: 34px;
+        padding: 24px 26px 18px;
+        border: 1px solid rgba(184, 149, 81, 0.72);
+        background:
+          linear-gradient(180deg, rgba(8, 9, 9, 0.96), rgba(10, 10, 11, 0.98)),
+          rgba(7, 7, 7, 0.9);
+      }
+
+      .messages-section {
+        margin-top: 36px;
+        padding: 28px;
+        border: 1px solid var(--line);
+        background: rgba(8, 10, 11, 0.76);
+        box-shadow: inset 0 0 0 1px rgba(148, 110, 40, 0.25);
+      }
+
+      .messages-heading {
+        margin: 0 0 10px;
+        color: var(--gold-soft);
+        font-size: clamp(30px, 3.4vw, 44px);
+        font-weight: 400;
+        text-align: center;
+      }
+
+      .messages-intro {
+        margin: 0 auto 24px;
+        color: var(--muted);
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+        text-align: center;
+      }
+
+      .greeting-card {
+        width: min(768px, 100%);
+        margin: 0 auto;
+        padding: 12px;
+        border: 1px solid rgba(184, 149, 81, 0.72);
+        background: #f5f3ee;
+        box-shadow: 0 18px 36px rgba(0, 0, 0, 0.32);
+      }
+
+      .greeting-card img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      .greeting-caption {
+        margin: 14px 0 2px;
+        color: var(--muted);
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 14px;
+        line-height: 1.5;
+        text-align: center;
+      }
+
+      .doc-preview {
+        position: relative;
+        display: flex;
+        min-height: 0;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .doc-preview a {
+        display: block;
+        line-height: 0;
+      }
+
+      .doc-preview img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border: 1px solid rgba(184, 149, 81, 0.72);
+        box-shadow: 0 18px 36px rgba(0, 0, 0, 0.32);
+      }
+
+      .letter-copy {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-right: 8px;
+      }
+
+      .eyebrow {
+        margin: 0 0 12px;
+        color: var(--gold-soft);
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 2px;
+      }
+
+      .letter-copy h2 {
+        margin: 0 0 18px;
+        color: #f2e8dc;
+        font-size: clamp(38px, 3.1vw, 58px);
+        font-weight: 400;
+        letter-spacing: -1.8px;
+        line-height: 1.05;
+      }
+
+      .letter-copy p {
+        margin: 0 0 18px;
+        color: rgba(231, 226, 219, 0.9);
+        font-size: clamp(19px, 1.6vw, 26px);
+        line-height: 1.45;
+      }
+
+      .letter-meta {
+        margin: 10px 0 0;
+        display: grid;
+        gap: 16px;
+      }
+
+      .meta-row {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: rgba(240, 228, 211, 0.95);
+        font-size: clamp(18px, 1.8vw, 25px);
+      }
+
+      .meta-icon {
+        display: inline-flex;
+        width: 28px;
+        height: 28px;
+        align-items: center;
+        justify-content: center;
+        color: var(--gold-soft);
+        font-size: 22px;
+      }
+
+      .cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+        width: min(340px, 100%);
+        margin-top: 26px;
+        padding: 18px 20px;
+        border: 1px solid rgba(226, 179, 82, 0.78);
+        border-radius: 999px;
+        background: linear-gradient(180deg, rgba(224, 186, 95, 1), rgba(186, 143, 57, 1));
+        color: #1a1207;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 20px;
+        font-weight: 700;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.4), 0 8px 22px rgba(0, 0, 0, 0.18);
+      }
+
+      .letter-actions {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .download-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 56px;
+        margin-top: 26px;
+        padding: 14px 20px;
+        border: 1px solid var(--gold-deep);
+        border-radius: 999px;
+        color: var(--gold-soft);
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 16px;
+        font-weight: 700;
+        transition: background-color 160ms ease, border-color 160ms ease;
+      }
+
+      .download-link:hover,
+      .download-link:focus-visible {
+        border-color: var(--gold-soft);
+        background: rgba(210, 168, 90, 0.12);
+      }
+
+      .cta .eye {
+        font-size: 24px;
+      }
+
+      .cta:hover,
+      .cta:focus-visible {
+        filter: brightness(1.02);
+      }
+
+      @media (max-width: 1024px) and (min-width: 769px) {
+        .page-shell {
+          width: calc(100% - 36px);
+        }
+
+        .nav-wrap {
+          width: calc(100% - 36px);
+        }
+
+        .hero {
+          min-height: 320px;
+          padding: 22px 18px 30px;
+        }
+
+        .hero h1 {
+          font-size: clamp(38px, 5vw, 60px);
+        }
+
+        .hero-copy {
+          font-size: clamp(17px, 2vw, 24px);
+        }
+
+        .featured-wrap {
+          padding: 16px 18px 22px;
+        }
+
+        .featured-card {
+          padding: 20px 22px 16px;
+          gap: 26px;
+        }
+
+        .messages-section {
+          margin-top: 30px;
+          padding: 24px;
+        }
+      }
+
+      @media (max-width: 860px) {
+        .featured-card {
+          grid-template-columns: 1fr;
+        }
+
+        .letter-copy {
+          padding-right: 0;
+        }
+      }
+
+      @media (max-width: 620px) {
+        .page-shell {
+          width: calc(100% - 26px);
+        }
+
+        .nav-wrap {
+          width: calc(100% - 24px);
+          justify-content: center;
+          flex-wrap: wrap;
+          padding: 12px 0;
+        }
+
+        .nav-links {
+          gap: 12px;
+          font-size: 9px;
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+
+        .hero {
+          min-height: 300px;
+          padding: 18px 14px 28px;
+        }
+
+        .hero h1 {
+          font-size: clamp(36px, 11vw, 54px);
+        }
+
+        .hero-copy {
+          font-size: clamp(17px, 5vw, 23px);
+        }
+
+        .featured-wrap {
+          padding: 12px 12px 18px;
+        }
+
+        .messages-section {
+          margin-top: 22px;
+          padding: 18px 12px;
+        }
+
+        .featured-card {
+          padding: 16px;
+          gap: 18px;
+        }
+
+        .cta {
+          width: 100%;
+          font-size: 18px;
+        }
+      }
+
+      .menu-toggle {
+        display: none;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        min-height: 40px;
+        padding: 8px 11px;
+        border: 1px solid var(--gold-deep);
+        border-radius: 2px;
+        background: #11100d;
+        color: var(--gold-soft);
+        font: 700 10px Arial, Helvetica, sans-serif;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        cursor: pointer;
+      }
+
+      .menu-icon,
+      .menu-icon::before,
+      .menu-icon::after {
+        display: block;
+        width: 17px;
+        height: 2px;
+        background: currentColor;
+        transition: transform 160ms ease;
+      }
+      .menu-icon { position: relative; }
+      .menu-icon::before,
+      .menu-icon::after {
+        position: absolute;
+        left: 0;
+        content: "";
+      }
+      .menu-icon::before { top: -5px; }
+      .menu-icon::after { top: 5px; }
+      .menu-toggle[aria-expanded="true"] .menu-icon { background: transparent; }
+      .menu-toggle[aria-expanded="true"] .menu-icon::before {
+        top: 0;
+        transform: rotate(45deg);
+      }
+      .menu-toggle[aria-expanded="true"] .menu-icon::after {
+        top: 0;
+        transform: rotate(-45deg);
+      }
+
+      .menu-toggle:focus-visible,
+      .nav-links a:focus-visible {
+        outline: 2px solid var(--gold-soft);
+        outline-offset: 3px;
+      }
+
+      @media (max-width: 760px) {
+        .site-header { height: auto; }
+        .nav-wrap {
+          position: relative;
+          width: calc(100% - 36px);
+          min-height: 58px;
+          flex-wrap: wrap;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+          gap: 10px;
+          padding: 9px 0;
+        }
+        .js .menu-toggle { display: inline-flex; }
+        .nav-links {
+          flex-basis: 100%;
+          flex-direction: column;
+          gap: 0;
+          padding: 4px 0 2px;
+          border-top: 1px solid rgba(197, 153, 78, 0.3);
+        }
+        .nav-links a {
+          display: block;
+          padding: 12px 4px;
+          border-bottom: 1px solid rgba(197, 153, 78, 0.13);
+        }
+        .js .nav-links:not(.is-open) { display: none; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav-wrap" aria-label="Main navigation">
+        <a class="brand" href="index.html#top">A Birthday Tribute</a>
+        <button class="menu-toggle" type="button" aria-controls="primary-navigation" aria-expanded="false" aria-label="Open navigation menu">
+          <span class="menu-icon" aria-hidden="true"></span>
+          Menu
+        </button>
+        <div class="nav-links" id="primary-navigation">
+          <a href="index.html#tribute">Tribute</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="media.html">Media</a>
+          <a href="messages.html">Messages</a>
+          <a href="letter.html" aria-current="page">Letter</a>
+          <a href="index.html#blessing">Blessing</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="page-shell">
+      <section class="hero" aria-labelledby="letter-hero-title">
+        <div class="hero-inner">
+          <div>
+            <div class="ornament" aria-hidden="true">∞</div>
+            <h1 id="letter-hero-title">Letters of Honour &amp; <span>Celebration</span></h1>
+            <p class="hero-copy">
+              A collection of official letters and messages of goodwill celebrating
+              Archbishop Dr. Emmah Gospel Isong on his 62nd birthday.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="featured-wrap" aria-label="Featured letter card">
+        <div class="featured-label">Featured Letter</div>
+
+        <div class="featured-card">
+          <div class="doc-preview">
+            <a
+              href="assets/governor-birthday-letter.pdf#page=1"
+              target="_blank"
+              rel="noopener"
+              aria-label="Open page 1 of the governor's birthday letter PDF"
+            >
+              <img
+                src="assets/governor-birthday-letter-page-1.png"
+                alt="First page of the birthday letter from the Governor of Akwa Ibom State"
+              />
+            </a>
+          </div>
+
+          <div class="letter-copy">
+            <p class="eyebrow">Official Letter</p>
+            <h2>Birthday Letter from the Governor</h2>
+            <p>
+              A special letter of goodwill and celebration from the Governor in honour of
+              Archbishop Dr. Emmah Gospel Isong on his 62nd birthday.
+            </p>
+
+            <div class="letter-meta" aria-label="Letter details">
+              <div class="meta-row">
+                <span class="meta-icon" aria-hidden="true">✉</span>
+                <span>From: Governor of Akwa Ibom</span>
+              </div>
+              <div class="meta-row">
+                <span class="meta-icon" aria-hidden="true">🗓</span>
+                <span>Date:26 October 2026</span>
+              </div>
+              <div class="meta-row">
+                <span class="meta-icon" aria-hidden="true">▣</span>
+                <span>Type: Official Letter</span>
+              </div>
+            </div>
+
+            <div class="letter-actions">
+              <a
+                class="cta"
+                href="assets/governor-birthday-letter.pdf"
+                target="_blank"
+                rel="noopener"
+                aria-label="View the full letter as a PDF in a new tab"
+              >
+                <span class="eye" aria-hidden="true">◉</span>
+                <span>View Full Letter</span>
+                <span aria-hidden="true">→</span>
+              </a>
+              <a
+                class="download-link"
+                href="assets/governor-birthday-letter.pdf"
+                download="Governor-Akwa-Ibom-Birthday-Letter.pdf"
+              >
+                Download PDF
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="messages-section" aria-labelledby="messages-heading">
+        <h2 class="messages-heading" id="messages-heading">Other Messages &amp; Birthday Wishes</h2>
+        <p class="messages-intro">
+          A birthday greeting from Mr. Bassey Archibong, Senior Assistant to the Governor on Protocol.
+        </p>
+        <figure class="greeting-card">
+          <img
+            src="assets/birthday-wish-bassey-archibong.png"
+            alt="Birthday greeting to Archbishop Emmah Gospel Isong from Mr. Bassey Archibong, Senior Assistant to the Governor on Protocol, Akwa Ibom State"
+          />
+        </figure>
+        <p class="greeting-caption">Mr. Bassey Archibong · SA to the Governor on Protocol · Akwa Ibom State</p>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,697 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Photographs celebrating Archbishop Emmah Gospel Isong's life and 62nd birthday."
+    />
+    <script src="navigation.js" defer></script>
+    <title>Birthday Gallery — Archbishop Emmah Gospel Isong</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --ink: #0a0a09;
+        --cream: #f5f1e9;
+        --muted: #ddd6c9;
+        --bright-gold: #f4d98e;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--ink);
+        color: var(--cream);
+        font-family: Georgia, "Times New Roman", serif;
+        line-height: 1.55;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .site-header {
+        min-height: 58px;
+        border-top: 2px solid #75551c;
+        background: #090909;
+      }
+
+      .nav-wrap {
+        width: min(1100px, calc(100% - 48px));
+        min-height: 56px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+      }
+
+      .brand,
+      .nav-links,
+      .eyebrow {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+      }
+
+      .brand,
+      .eyebrow,
+      .nav-links a[aria-current="page"] {
+        color: var(--bright-gold);
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 24px;
+        font-size: 10px;
+        font-weight: 500;
+        letter-spacing: 1.3px;
+      }
+
+      .nav-links a {
+        transition: color 160ms ease;
+      }
+
+      .nav-links a:hover,
+      .nav-links a:focus-visible {
+        color: var(--bright-gold);
+      }
+
+      main {
+        min-height: calc(100vh - 118px);
+        padding: 66px 24px 76px;
+        background:
+          radial-gradient(ellipse at 78% 0%, rgba(117, 83, 30, 0.13), transparent 46%),
+          #090909;
+      }
+
+      .content {
+        width: min(1100px, 100%);
+        margin: 0 auto;
+      }
+
+      .page-heading {
+        margin-bottom: 30px;
+        text-align: center;
+      }
+
+      .eyebrow {
+        margin: 0 0 10px;
+        font-size: 10px;
+        letter-spacing: 2px;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(36px, 5vw, 52px);
+        font-weight: 400;
+        letter-spacing: -1px;
+        line-height: 1.16;
+      }
+
+      .intro {
+        margin: 13px 0 0;
+        color: var(--muted);
+        font-size: 15px;
+      }
+
+      .gallery-controls {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 12px;
+        margin: 0 0 22px;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      .gallery-controls label {
+        color: var(--muted);
+        font-size: 12px;
+        letter-spacing: 1.1px;
+        text-transform: uppercase;
+      }
+
+      .gallery-controls select {
+        min-width: 220px;
+        padding: 10px 12px;
+        border: 1px solid #40311d;
+        background: rgba(14, 13, 11, 0.9);
+        color: var(--cream);
+        font-size: 14px;
+        font-family: Arial, Helvetica, sans-serif;
+        border-radius: 0;
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .gallery-grid a {
+        display: block;
+        cursor: zoom-in;
+      }
+
+      .gallery-item.is-hidden,
+      .video-item.is-hidden {
+        display: none !important;
+      }
+
+      .gallery-grid img {
+        display: block;
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        border: 1px solid #40311d;
+        transition: filter 160ms ease, transform 160ms ease;
+      }
+
+      .gallery-grid a:hover img,
+      .gallery-grid a:focus-visible img {
+        filter: brightness(1.12);
+        transform: scale(1.01);
+      }
+
+      .gallery-grid .gallery-poster {
+        object-fit: contain;
+        background: #14120e;
+      }
+
+      .gallery-video {
+        grid-column: 1 / -1;
+        margin-top: 10px;
+      }
+
+      .gallery-video video {
+        display: block;
+        width: 100%;
+        max-width: 900px;
+        margin: 0 auto;
+        border: 1px solid #40311d;
+        background: #000;
+      }
+
+      .video-caption {
+        margin: 10px 0 0;
+        text-align: center;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      footer {
+        padding: 19px 24px;
+        color: #9f998e;
+        background: #090909;
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 10px;
+      }
+
+      footer strong {
+        color: var(--bright-gold);
+      }
+
+      @media (max-width: 1024px) and (min-width: 769px) {
+        .nav-wrap {
+          width: calc(100% - 36px);
+        }
+
+        .gallery-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 14px;
+        }
+      }
+
+      @media (max-width: 680px) {
+        .nav-wrap {
+          width: calc(100% - 36px);
+        }
+
+        .nav-links {
+          gap: 12px;
+          font-size: 9px;
+          letter-spacing: 0.7px;
+        }
+
+        main {
+          padding: 50px 21px 60px;
+        }
+
+        .gallery-grid {
+          grid-template-columns: 1fr;
+          gap: 14px;
+        }
+
+        .gallery-grid img {
+          aspect-ratio: 1.15 / 1;
+        }
+      }
+
+      @media (max-width: 390px) {
+        .nav-wrap {
+          align-items: flex-start;
+          flex-direction: column;
+          justify-content: center;
+          padding: 12px 0;
+        }
+
+        .nav-links {
+          gap: 18px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          scroll-behavior: auto !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+
+      .menu-toggle {
+        display: none;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        min-height: 40px;
+        padding: 8px 11px;
+        border: 1px solid #80632d;
+        border-radius: 2px;
+        background: #11100d;
+        color: var(--bright-gold);
+        font: 700 10px Arial, Helvetica, sans-serif;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        cursor: pointer;
+      }
+
+      .menu-icon,
+      .menu-icon::before,
+      .menu-icon::after {
+        display: block;
+        width: 17px;
+        height: 2px;
+        background: currentColor;
+        transition: transform 160ms ease;
+      }
+
+      .menu-icon {
+        position: relative;
+      }
+
+      .menu-icon::before,
+      .menu-icon::after {
+        position: absolute;
+        left: 0;
+        content: "";
+      }
+
+      .menu-icon::before { top: -5px; }
+      .menu-icon::after { top: 5px; }
+      .menu-toggle[aria-expanded="true"] .menu-icon { background: transparent; }
+      .menu-toggle[aria-expanded="true"] .menu-icon::before {
+        top: 0;
+        transform: rotate(45deg);
+      }
+      .menu-toggle[aria-expanded="true"] .menu-icon::after {
+        top: 0;
+        transform: rotate(-45deg);
+      }
+
+      .menu-toggle:focus-visible,
+      .nav-links a:focus-visible {
+        outline: 2px solid var(--bright-gold);
+        outline-offset: 3px;
+      }
+
+      @media (max-width: 760px) {
+        .site-header { height: auto; }
+        .nav-wrap {
+          position: relative;
+          width: calc(100% - 36px);
+          min-height: 58px;
+          flex-wrap: wrap;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+          gap: 10px;
+          padding: 9px 0;
+        }
+        .js .menu-toggle { display: inline-flex; }
+        .nav-links {
+          flex-basis: 100%;
+          flex-direction: column;
+          gap: 0;
+          padding: 4px 0 2px;
+          border-top: 1px solid #302719;
+        }
+        .nav-links a {
+          display: block;
+          padding: 12px 4px;
+          border-bottom: 1px solid rgba(214, 173, 80, 0.13);
+        }
+        .js .nav-links:not(.is-open) { display: none; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav-wrap" aria-label="Main navigation">
+        <a class="brand" href="index.html#top">A Birthday Tribute</a>
+        <button class="menu-toggle" type="button" aria-controls="primary-navigation" aria-expanded="false" aria-label="Open navigation menu">
+          <span class="menu-icon" aria-hidden="true"></span>
+          Menu
+        </button>
+        <div class="nav-links" id="primary-navigation">
+          <a href="index.html#tribute">Tribute</a>
+          <a href="gallery.html" aria-current="page">Gallery</a>
+          <a href="media.html">Media</a>
+          <a href="messages.html">Messages</a>
+          <a href="letter.html">Letter</a>
+          <a href="index.html#blessing">Blessing</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <div class="content">
+        <header class="page-heading">
+          <p class="eyebrow">Moments &amp; memories</p>
+          <h1>A Life Worth Celebrating</h1>
+          <p class="intro">A few photographs in honour of this special milestone.</p>
+        </header>
+        <div class="gallery-controls" aria-label="Gallery filter">
+          <label for="gallery-filter">Filter</label>
+          <select id="gallery-filter" aria-label="Choose gallery items to view">
+            <option value="all">All</option>
+            <option value="images">Images</option>
+            <option value="videos">Videos</option>
+          </select>
+        </div>
+        <div class="gallery-grid" id="gallery-grid">
+          <a class="gallery-item image-item" href="assets/gallery-1.jpg" target="_blank" rel="noopener">
+            <img
+              src="assets/gallery-1.jpg"
+              alt="Archbishop Emmah Gospel Isong speaking at a gathering"
+            />
+          </a>
+          <a class="gallery-item image-item" href="assets/gallery-2.jpg" target="_blank" rel="noopener">
+            <img
+              src="assets/gallery-2.jpg"
+              alt="Archbishop Emmah Gospel Isong sharing a message"
+            />
+          </a>
+          <a class="gallery-item image-item" href="assets/gallery-3.jpg" target="_blank" rel="noopener">
+            <img
+              src="assets/gallery-3.jpg"
+              alt="Archbishop Emmah Gospel Isong preaching from the pulpit"
+            />
+          </a>
+          <a class="gallery-item image-item" href="assets/gallery-portrait-teal.png" target="_blank" rel="noopener">
+            <img
+              src="assets/gallery-portrait-teal.png"
+              alt="Archbishop Emmah Gospel Isong in a teal traditional outfit"
+              loading="lazy"
+            />
+          </a>
+          <a class="gallery-item image-item" href="assets/gallery-portrait-emerald.png" target="_blank" rel="noopener">
+            <img
+              src="assets/gallery-portrait-emerald.png"
+              alt="Archbishop Emmah Gospel Isong seated in green traditional attire"
+              loading="lazy"
+            />
+          </a>
+          <a class="gallery-item image-item" href="assets/gallery-community-gathering.png" target="_blank" rel="noopener">
+            <img
+              src="assets/gallery-community-gathering.png"
+              alt="Archbishop Emmah Gospel Isong greeting a community leader at a gathering"
+              loading="lazy"
+            />
+          </a>
+          <a class="gallery-item image-item" href="assets/gallery-conference-greeting.png" target="_blank" rel="noopener">
+            <img
+              src="assets/gallery-conference-greeting.png"
+              alt="Archbishop Emmah Gospel Isong greeting a guest at an event"
+              loading="lazy"
+            />
+          </a>
+          <a class="gallery-item image-item" href="assets/gallery-leadership-address.png" target="_blank" rel="noopener">
+            <img
+              src="assets/gallery-leadership-address.png"
+              alt="Archbishop Emmah Gospel Isong speaking at a leadership conference"
+              loading="lazy"
+            />
+          </a>
+          <a class="gallery-item image-item" href="assets/birthday-celebration-poster.png" target="_blank" rel="noopener">
+            <img
+              class="gallery-poster"
+              src="assets/birthday-celebration-poster.png"
+              alt="Archbishop Emmah Gospel Isong's 62nd birthday celebration poster"
+              loading="lazy"
+            />
+          </a>
+
+          <a class="gallery-item image-item" href="assets/bishop-ajayi-birthday-tribute.png" target="_blank" rel="noopener">
+            <img
+              class="gallery-poster"
+              src="assets/bishop-ajayi-birthday-tribute.png"
+              alt="Birthday tribute card celebrating Archbishop Dr. Emmah Gospel Isong"
+              loading="lazy"
+            />
+          </a>
+          <a class="gallery-item image-item" href="assets/gallery-birthday-arrival.png" target="_blank" rel="noopener">
+            <img
+              src="assets/gallery-birthday-arrival.png"
+              alt="Archbishop Emmah Gospel Isong and his wife arriving at the birthday celebration"
+              loading="lazy"
+            />
+          </a>
+          <a class="gallery-item image-item" href="assets/gallery-birthday-procession.png" target="_blank" rel="noopener">
+            <img
+              src="assets/gallery-birthday-procession.png"
+              alt="Archbishop Emmah Gospel Isong and his wife walking into the celebration"
+              loading="lazy"
+            />
+          </a>
+          <a class="gallery-item image-item" href="assets/gallery-family-cake.png" target="_blank" rel="noopener">
+            <img
+              src="assets/gallery-family-cake.png"
+              alt="Archbishop Emmah Gospel Isong celebrating with family beside his birthday cake"
+              loading="lazy"
+            />
+          </a>
+          <a class="gallery-item image-item" href="assets/gallery-congregation-prayer.png" target="_blank" rel="noopener">
+            <img
+              src="assets/gallery-congregation-prayer.png"
+              alt="Congregation raising their hands in prayer during the celebration"
+              loading="lazy"
+            />
+          </a>
+          <a class="gallery-item image-item" href="assets/gallery-birthday-greeting.png" target="_blank" rel="noopener">
+            <img
+              src="assets/gallery-birthday-greeting.png"
+              alt="A guest greeting Archbishop Emmah Gospel Isong at the celebration"
+              loading="lazy"
+            />
+          </a>
+          <a class="gallery-item image-item" href="assets/gallery-family-celebration.png" target="_blank" rel="noopener">
+            <img
+              src="assets/gallery-family-celebration.png"
+              alt="Archbishop Emmah Gospel Isong celebrating with his wife and granddaughter"
+              loading="lazy"
+            />
+          </a>
+          <a class="gallery-item image-item" href="assets/gallery-congregation-worship.png" target="_blank" rel="noopener">
+            <img
+              src="assets/gallery-congregation-worship.png"
+              alt="Archbishop Emmah Gospel Isong leading worship with the congregation"
+              loading="lazy"
+            />
+          </a>
+          <a class="gallery-item image-item" href="assets/gallery-church-gathering.png" target="_blank" rel="noopener">
+            <img
+              src="assets/gallery-church-gathering.png"
+              alt="Guests gathered in the church during the birthday celebration"
+              loading="lazy"
+            />
+          </a>
+          <a class="gallery-item image-item" href="assets/gallery-birthday-guests.png" target="_blank" rel="noopener">
+            <img
+              src="assets/gallery-birthday-guests.png"
+              alt="Guests enjoying the birthday celebration"
+              loading="lazy"
+            />
+          </a>
+          <a class="gallery-item image-item" href="assets/gallery-birthday-cake.png" target="_blank" rel="noopener">
+            <img
+              src="assets/gallery-birthday-cake.png"
+              alt="Birthday cake decorated with a dove and a Happy Birthday Dad message"
+              loading="lazy"
+            />
+          </a>
+          <a class="gallery-item image-item" href="assets/gallery-celebration-guests.png" target="_blank" rel="noopener">
+            <img
+              src="assets/gallery-celebration-guests.png"
+              alt="Family and friends seated together at the celebration"
+              loading="lazy"
+            />
+          </a>
+          <a class="gallery-item image-item" href="assets/gallery-celebration-sermon.png" target="_blank" rel="noopener">
+            <img
+              src="assets/gallery-celebration-sermon.png"
+              alt="A woman speaking from the pulpit during the church celebration"
+              loading="lazy"
+            />
+          </a>
+          <a class="gallery-item image-item" href="assets/gallery-church-service.png" target="_blank" rel="noopener">
+            <img
+              src="assets/gallery-church-service.png"
+              alt="Wide view of the congregation gathered inside the church"
+              loading="lazy"
+            />
+          </a>
+          <a class="gallery-item image-item" href="assets/gallery-church-band.png" target="_blank" rel="noopener">
+            <img
+              src="assets/gallery-church-band.png"
+              alt="Church band performing from the balcony"
+              loading="lazy"
+            />
+          </a>
+          <a class="gallery-item image-item" href="assets/gallery-choir-gathering.png" target="_blank" rel="noopener">
+            <img
+              src="assets/gallery-choir-gathering.png"
+              alt="Choir members seated together during the service"
+              loading="lazy"
+            />
+          </a>
+          <a class="gallery-item image-item" href="assets/gallery-womens-fellowship.png" target="_blank" rel="noopener">
+            <img
+              src="assets/gallery-womens-fellowship.png"
+              alt="Women in fellowship attire celebrating together"
+              loading="lazy"
+            />
+          </a>
+          <a class="gallery-item image-item" href="assets/gallery-congregation-prayer-2.png" target="_blank" rel="noopener">
+            <img
+              src="assets/gallery-congregation-prayer-2.png"
+              alt="Congregation praying together during the celebration"
+              loading="lazy"
+            />
+          </a>
+          <a class="gallery-item image-item" href="assets/gallery-celebration-address.png" target="_blank" rel="noopener">
+            <img
+              src="assets/gallery-celebration-address.png"
+              alt="A guest addressing the congregation at the celebration"
+              loading="lazy"
+            />
+          </a>
+          <a class="gallery-item image-item" href="assets/gallery-birthday-cake-2.png" target="_blank" rel="noopener">
+            <img
+              src="assets/gallery-birthday-cake-2.png"
+              alt="Birthday cake decorated with a Happy Birthday message and a picture of the church"
+              loading="lazy"
+            />
+          </a>
+          <a class="gallery-item image-item" href="assets/gallery-celebration-guests-2.png" target="_blank" rel="noopener">
+            <img
+              src="assets/gallery-celebration-guests-2.png"
+              alt="Guests seated together at the church celebration"
+              loading="lazy"
+            />
+          </a>
+          <a class="gallery-item image-item" href="assets/gallery-womens-celebration.png" target="_blank" rel="noopener">
+            <img
+              src="assets/gallery-womens-celebration.png"
+              alt="Women celebrating together at the birthday service"
+              loading="lazy"
+            />
+          </a>
+          <a class="gallery-item image-item" href="assets/gallery-birthday-procession-2.png" target="_blank" rel="noopener">
+            <img
+              src="assets/gallery-birthday-procession-2.png"
+              alt="Archbishop Emmah Gospel Isong and his wife celebrating with the congregation"
+              loading="lazy"
+            />
+          </a>
+          <a class="gallery-item image-item" href="assets/gallery-portrait-blue.png" target="_blank" rel="noopener">
+            <img
+              src="assets/gallery-portrait-blue.png"
+              alt="Archbishop Emmah Gospel Isong in a light blue traditional outfit"
+              loading="lazy"
+            />
+          </a>
+          <a class="gallery-item image-item" href="assets/WhatsApp Image 2026-10-27 at 13.40.47.jpeg" target="_blank" rel="noopener">
+            <img
+              src="assets/WhatsApp Image 2026-10-27 at 13.40.47.jpeg"
+              alt="Archbishop Emmah Gospel Isong captured during the birthday celebration"
+              loading="lazy"
+            />
+          </a>
+        </div>
+        <div class="gallery-video video-item" data-type="video">
+          <video controls playsinline>
+            <source src="assets/archbishop-birthday-video.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          <p class="video-caption">Birthday celebration video 1</p>
+        </div>
+        <div class="gallery-video video-item" data-type="video">
+          <video controls playsinline>
+            <source src="assets/archbishop-birthday-video-2.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          <p class="video-caption">Birthday celebration video 2</p>
+        </div>
+        <div class="gallery-video video-item" data-type="video">
+          <video controls playsinline>
+            <source
+              src="assets/WhatsApp Video 2026-10-27 at 09.21.48.mp4"
+              type="video/mp4"
+            />
+            Your browser does not support the video tag.
+          </video>
+          <p class="video-caption">Birthday celebration video 3</p>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      const filterSelect = document.getElementById('gallery-filter');
+      const galleryItems = document.querySelectorAll('.gallery-item');
+      const videoItems = document.querySelectorAll('.video-item');
+
+      function updateGalleryFilter(value) {
+        const showImages = value === 'images';
+        const showVideos = value === 'videos';
+
+        galleryItems.forEach((item) => {
+          const shouldShow = value === 'all' || showImages;
+          item.classList.toggle('is-hidden', !shouldShow);
+        });
+
+        videoItems.forEach((item) => {
+          const shouldShow = value === 'all' || showVideos;
+          item.classList.toggle('is-hidden', !shouldShow);
+        });
+      }
+
+      filterSelect.addEventListener('change', (event) => {
+        updateGalleryFilter(event.target.value);
+      });
+    </script>
+
+    <footer>
+      Created with love in celebration of <strong>Archbishop Emmah Gospel Isong</strong> ·
+      <time datetime="2026-10-26">26 October 2026</time>
+    </footer>
+  </body>
+</html>

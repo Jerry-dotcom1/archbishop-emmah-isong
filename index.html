@@ -1,0 +1,700 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="A birthday tribute celebrating the life, faith, leadership, and legacy of Archbishop Emmah Gospel Isong."
+    />
+    <script src="navigation.js" defer></script>
+    <title>A Birthday Tribute — Archbishop Emmah Gospel Isong</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --ink: #0a0a09;
+        --soft-ink: #111110;
+        --panel: #151514;
+        --cream: #f5f1e9;
+        --muted: #ddd6c9;
+        --gold: #d6ad50;
+        --bright-gold: #f4d98e;
+        --line: #302719;
+        --content-width: 1100px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 58px;
+      }
+
+      body {
+        margin: 0;
+        background: var(--ink);
+        color: var(--cream);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 16px;
+        line-height: 1.55;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .site-header {
+        height: 58px;
+        background: #090909;
+        border-top: 2px solid #75551c;
+      }
+
+      .nav-wrap {
+        width: min(var(--content-width), calc(100% - 48px));
+        height: 100%;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .brand,
+      .nav-links,
+      .eyebrow,
+      .date {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+      }
+
+      .brand {
+        color: var(--bright-gold);
+        letter-spacing: 1.4px;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 24px;
+        font-size: 10px;
+        font-weight: 500;
+        letter-spacing: 1.3px;
+      }
+
+      .nav-links a {
+        transition: color 160ms ease;
+      }
+
+      .nav-links a:hover,
+      .nav-links a:focus-visible {
+        color: var(--bright-gold);
+      }
+
+      .hero {
+        background:
+          radial-gradient(ellipse at 78% 45%, rgba(120, 85, 34, 0.17), transparent 47%),
+          linear-gradient(110deg, #0b0b0a 5%, #14110c 55%, #0b0b0a 100%);
+      }
+
+      .hero-inner {
+        width: min(var(--content-width), calc(100% - 48px));
+        min-height: 410px;
+        margin: 0 auto;
+        padding: 44px 0 50px;
+        display: grid;
+        grid-template-columns: 1fr 36%;
+        align-items: center;
+        gap: 8%;
+      }
+
+      .eyebrow {
+        margin: 0 0 12px;
+        color: var(--gold);
+        font-size: 10px;
+        letter-spacing: 2.4px;
+      }
+
+      h1,
+      h2,
+      p {
+        margin-top: 0;
+      }
+
+      .hero h1 {
+        margin-bottom: 16px;
+        font-size: clamp(48px, 6.4vw, 74px);
+        font-weight: 400;
+        letter-spacing: -2.9px;
+        line-height: 0.98;
+      }
+
+      .hero h1 span {
+        display: block;
+        color: var(--bright-gold);
+        font-style: italic;
+      }
+
+      .hero-copy {
+        max-width: 570px;
+        margin-bottom: 22px;
+        color: var(--muted);
+        font-size: 16px;
+        line-height: 1.55;
+      }
+
+      .hero-copy strong,
+      .tribute-copy strong {
+        color: var(--cream);
+      }
+
+      .date {
+        display: inline-block;
+        padding: 9px 12px;
+        border: 1px solid #80632d;
+        color: var(--bright-gold);
+        font-size: 10px;
+        letter-spacing: 1.5px;
+      }
+
+      .hero-photo {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        object-position: center;
+        border: 1px solid #382b16;
+        outline: 1px solid #8c6b2d;
+        outline-offset: 8px;
+        filter: brightness(1.25) contrast(1.05) saturate(1.08);
+      }
+
+      .section {
+        padding: 66px 24px;
+      }
+
+      .section-inner {
+        width: min(var(--content-width), 100%);
+        margin: 0 auto;
+      }
+
+      .section-heading {
+        margin-bottom: 0;
+        font-size: clamp(36px, 4.2vw, 52px);
+        font-weight: 400;
+        letter-spacing: -1px;
+        line-height: 1.16;
+      }
+
+      .centered {
+        text-align: center;
+      }
+
+      .centered .eyebrow {
+        margin-bottom: 8px;
+      }
+
+      .heading-rule {
+        width: 58px;
+        height: 1px;
+        margin: 19px auto 24px;
+        background: #b38b3e;
+      }
+
+      .tribute {
+        min-height: 450px;
+        display: flex;
+        align-items: center;
+        background: #090909;
+      }
+
+      .tribute-copy {
+        max-width: 790px;
+        margin: 0 auto;
+        color: var(--muted);
+        font-size: 16px;
+        line-height: 1.65;
+      }
+
+      .tribute-copy p {
+        margin-bottom: 15px;
+      }
+
+      .tribute-copy p:last-child {
+        margin-bottom: 0;
+      }
+
+      .tribute-copy strong {
+        color: var(--bright-gold);
+      }
+
+      .journey {
+        background: var(--soft-ink);
+      }
+
+      .section-intro {
+        max-width: 650px;
+        margin: 15px auto 30px;
+        color: var(--muted);
+        font-size: 15px;
+      }
+
+      .journey-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+      }
+
+      .journey-card {
+        min-height: 208px;
+        padding: 24px;
+        border: 1px solid #33291b;
+        background: #141413;
+      }
+
+      .card-number {
+        display: block;
+        margin-bottom: 8px;
+        color: var(--gold);
+        font-size: 25px;
+        font-style: italic;
+      }
+
+      .journey-card h3 {
+        margin: 0 0 12px;
+        color: var(--cream);
+        font-size: 17px;
+        font-weight: 400;
+      }
+
+      .journey-card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      .blessing {
+        border-top: 1px solid #40311d;
+        border-bottom: 1px solid #40311d;
+        background:
+          radial-gradient(ellipse at 15% 45%, rgba(117, 83, 30, 0.13), transparent 50%),
+          linear-gradient(110deg, #171209, #0c0b09);
+      }
+
+      .blessing blockquote {
+        max-width: 850px;
+        margin: 16px auto 12px;
+        color: #f0e3c7;
+        font-size: clamp(25px, 3.25vw, 37px);
+        font-style: italic;
+        line-height: 1.4;
+      }
+
+      .verse {
+        margin: 0 0 18px;
+        color: var(--gold);
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+      }
+
+      .blessing-note {
+        margin: 0;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .site-footer {
+        padding: 19px 24px;
+        color: #9f998e;
+        background: #090909;
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 10px;
+      }
+
+      .site-footer strong {
+        color: var(--bright-gold);
+      }
+
+      @media (max-width: 1024px) and (min-width: 769px) {
+        .hero-inner {
+          grid-template-columns: 1.2fr 1fr;
+          gap: 6%;
+        }
+
+        .hero-copy {
+          max-width: 100%;
+        }
+
+        .hero-photo {
+          aspect-ratio: 4 / 5;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .nav-wrap {
+          width: calc(100% - 36px);
+          flex-wrap: wrap;
+          gap: 12px 16px;
+        }
+
+        .nav-links {
+          flex-basis: 100%;
+          justify-content: flex-start;
+          gap: 14px;
+          font-size: 9px;
+          letter-spacing: 0.7px;
+        }
+
+        .hero-inner {
+          width: calc(100% - 42px);
+          min-height: auto;
+          padding: 48px 0 54px;
+          grid-template-columns: 1fr;
+          gap: 30px;
+        }
+
+        .hero h1 {
+          font-size: clamp(44px, 12vw, 62px);
+        }
+
+        .hero-photo {
+          width: min(80%, 320px);
+          justify-self: center;
+        }
+
+        .section {
+          padding: 52px 21px;
+        }
+
+        .journey-grid {
+          grid-template-columns: 1fr;
+          gap: 12px;
+        }
+
+        .journey-card {
+          min-height: 0;
+          padding: 21px;
+        }
+      }
+
+      @media (max-width: 680px) {
+        .site-header {
+          height: auto;
+          min-height: 58px;
+        }
+
+        .nav-wrap {
+          width: calc(100% - 36px);
+          min-height: 58px;
+          gap: 14px;
+        }
+
+        .brand {
+          font-size: 9px;
+          letter-spacing: 1px;
+        }
+
+        .nav-links {
+          gap: 12px;
+          font-size: 9px;
+          letter-spacing: 0.7px;
+        }
+
+        .hero-inner {
+          width: calc(100% - 42px);
+          min-height: auto;
+          padding: 55px 0 60px;
+          grid-template-columns: 1fr;
+          gap: 34px;
+        }
+
+        .hero h1 {
+          font-size: clamp(48px, 12vw, 68px);
+        }
+
+        .hero-photo {
+          width: min(78%, 350px);
+          justify-self: center;
+        }
+
+        .section {
+          padding: 58px 21px;
+        }
+
+        .tribute {
+          min-height: 0;
+        }
+
+        .tribute-copy {
+          font-size: 15px;
+        }
+
+      }
+
+      @media (max-width: 390px) {
+        .nav-wrap {
+          align-items: flex-start;
+          flex-direction: column;
+          justify-content: center;
+          padding: 12px 0;
+        }
+
+        .nav-links {
+          gap: 18px;
+        }
+
+        .date {
+          font-size: 9px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        *,
+        *::before,
+        *::after {
+          transition-duration: 0.01ms !important;
+        }
+      }
+
+      .menu-toggle {
+        display: none;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        min-height: 40px;
+        padding: 8px 11px;
+        border: 1px solid #80632d;
+        border-radius: 2px;
+        background: #11100d;
+        color: var(--bright-gold);
+        font: 700 10px Arial, Helvetica, sans-serif;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        cursor: pointer;
+      }
+
+      .menu-icon,
+      .menu-icon::before,
+      .menu-icon::after {
+        display: block;
+        width: 17px;
+        height: 2px;
+        background: currentColor;
+        transition: transform 160ms ease;
+      }
+
+      .menu-icon {
+        position: relative;
+      }
+
+      .menu-icon::before,
+      .menu-icon::after {
+        position: absolute;
+        left: 0;
+        content: "";
+      }
+
+      .menu-icon::before {
+        top: -5px;
+      }
+
+      .menu-icon::after {
+        top: 5px;
+      }
+
+      .menu-toggle[aria-expanded="true"] .menu-icon {
+        background: transparent;
+      }
+
+      .menu-toggle[aria-expanded="true"] .menu-icon::before {
+        top: 0;
+        transform: rotate(45deg);
+      }
+
+      .menu-toggle[aria-expanded="true"] .menu-icon::after {
+        top: 0;
+        transform: rotate(-45deg);
+      }
+
+      .menu-toggle:focus-visible,
+      .nav-links a:focus-visible {
+        outline: 2px solid var(--bright-gold);
+        outline-offset: 3px;
+      }
+
+      @media (max-width: 760px) {
+        .site-header {
+          height: auto;
+          min-height: 58px;
+        }
+
+        .nav-wrap {
+          position: relative;
+          width: calc(100% - 36px);
+          min-height: 58px;
+          height: auto;
+          flex-wrap: wrap;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+          gap: 10px;
+          padding: 9px 0;
+        }
+
+        .js .menu-toggle {
+          display: inline-flex;
+        }
+
+        .nav-links {
+          flex-basis: 100%;
+          flex-direction: column;
+          gap: 0;
+          padding: 4px 0 2px;
+          border-top: 1px solid #302719;
+        }
+
+        .nav-links a {
+          display: block;
+          padding: 12px 4px;
+          border-bottom: 1px solid rgba(214, 173, 80, 0.13);
+        }
+
+        .js .nav-links:not(.is-open) {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav-wrap" aria-label="Main navigation">
+        <a class="brand" href="#top">A Birthday Tribute</a>
+        <button class="menu-toggle" type="button" aria-controls="primary-navigation" aria-expanded="false" aria-label="Open navigation menu">
+          <span class="menu-icon" aria-hidden="true"></span>
+          Menu
+        </button>
+        <div class="nav-links" id="primary-navigation">
+          <a href="#tribute">Tribute</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="media.html">Media</a>
+          <a href="messages.html">Messages</a>
+          <a href="letter.html">Letter</a>
+          <a href="#blessing">Blessing</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-inner">
+          <div>
+            <p class="eyebrow">A life of purpose · a legacy of love</p>
+            <h1 id="hero-title">Celebrating <span>62 Years</span></h1>
+            <p class="hero-copy">
+              Honouring the life, faith, leadership, and lasting impact of
+              <strong>Archbishop Emmah Gospel Isong</strong> on this special birthday.
+            </p>
+            <p class="date">Monday · October 26, 2026</p>
+          </div>
+          <img
+            class="hero-photo"
+            src="assets/portrait.jpg"
+            alt="Archbishop Emmah Gospel Isong seated in traditional attire"
+          />
+        </div>
+      </section>
+
+      <section class="section tribute" id="tribute" aria-labelledby="tribute-title">
+        <div class="section-inner centered">
+          <p class="eyebrow">A special celebration</p>
+          <h2 class="section-heading" id="tribute-title">Honouring a Remarkable Life</h2>
+          <div class="heading-rule" aria-hidden="true"></div>
+          <div class="tribute-copy">
+            <p>
+              Today, we celebrate not only another year of life, but a journey marked by faith,
+              service, and dedication. Archbishop Emmah Gospel Isong’s 62nd birthday is an
+              opportunity to express gratitude for the encouragement, spiritual leadership, and
+              inspiration he brings to the lives of others.
+            </p>
+            <p>
+              May this new chapter be filled with renewed strength, divine wisdom, good health,
+              abundant joy, and many more opportunities to make a meaningful difference. May the
+              years ahead bring fresh grace for every assignment and blessings beyond measure.
+            </p>
+            <p>
+              <strong>Happy 62nd Birthday, Archbishop!</strong> May your light continue to shine,
+              and may your legacy of faith and service grow from strength to strength.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section journey" aria-labelledby="journey-title">
+        <div class="section-inner centered">
+          <p class="eyebrow">Celebrating the journey</p>
+          <h2 class="section-heading" id="journey-title">62 Years of Grace</h2>
+          <p class="section-intro">
+            A birthday is more than a milestone. It is a moment to give thanks for the journey so
+            far and look forward with hope.
+          </p>
+          <div class="journey-grid">
+            <article class="journey-card">
+              <span class="card-number">01</span>
+              <h3>Faith &amp; Purpose</h3>
+              <p>
+                May your walk of faith continue to bring hope, courage, and encouragement to all
+                those you meet.
+              </p>
+            </article>
+            <article class="journey-card">
+              <span class="card-number">02</span>
+              <h3>Leadership &amp; Service</h3>
+              <p>
+                May your service continue to bear good fruit and your leadership be strengthened
+                with wisdom and compassion.
+              </p>
+            </article>
+            <article class="journey-card">
+              <span class="card-number">03</span>
+              <h3>Grace for the Years Ahead</h3>
+              <p>
+                May the coming years bring fresh opportunities, peace, fulfilment, and abundant
+                reasons to rejoice.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section blessing centered" id="blessing" aria-labelledby="blessing-title">
+        <div class="section-inner">
+          <p class="eyebrow" id="blessing-title">Our birthday prayer</p>
+          <blockquote>
+            “May the Lord bless you and keep you; may He make His face shine upon you and be
+            gracious to you.”
+          </blockquote>
+          <p class="verse">Numbers 6:24–25</p>
+          <p class="blessing-note">
+            Wishing Archbishop Emmah Gospel Isong a joyful 62nd birthday and a blessed year ahead.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      Created with love in celebration of <strong>Archbishop Emmah Gospel Isong</strong> ·
+      <time datetime="2026-10-26">26 October 2026</time>
+    </footer>
+  </body>
+</html>

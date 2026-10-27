@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Birthday messages and tributes celebrating Archbishop Emmah Gospel Isong."
+    />
+    <script src="navigation.js" defer></script>
+    <title>Birthday Messages — Archbishop Emmah Gospel Isong</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --ink: #0a0a09;
+        --cream: #f5f1e9;
+        --muted: #ddd6c9;
+        --gold: #d6ad50;
+        --bright-gold: #f4d98e;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--ink);
+        color: var(--cream);
+        font-family: Georgia, "Times New Roman", serif;
+        line-height: 1.55;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .site-header {
+        min-height: 58px;
+        border-top: 2px solid #75551c;
+        background: #090909;
+      }
+
+      .nav-wrap {
+        width: min(1100px, calc(100% - 48px));
+        min-height: 56px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+      }
+
+      .brand,
+      .back-link,
+      .eyebrow {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+      }
+
+      .brand,
+      .eyebrow {
+        color: var(--bright-gold);
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 24px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 10px;
+        font-weight: 500;
+        letter-spacing: 1.3px;
+        text-transform: uppercase;
+      }
+
+      .nav-links a {
+        transition: color 160ms ease;
+      }
+
+      .nav-links a:hover,
+      .nav-links a:focus-visible {
+        color: var(--bright-gold);
+      }
+
+      .nav-links a[aria-current="page"] {
+        color: var(--bright-gold);
+      }
+
+      .back-link {
+        color: var(--muted);
+        font-size: 10px;
+        letter-spacing: 1.2px;
+      }
+
+      .back-link:hover,
+      .back-link:focus-visible {
+        color: var(--bright-gold);
+      }
+
+      main {
+        min-height: calc(100vh - 118px);
+        padding: 66px 24px 76px;
+        background:
+          radial-gradient(ellipse at 15% 0%, rgba(117, 83, 30, 0.13), transparent 46%),
+          #0d0d0c;
+      }
+
+      .content {
+        width: min(920px, 100%);
+        margin: 0 auto;
+      }
+
+      .page-heading {
+        margin-bottom: 34px;
+        padding-bottom: 25px;
+        border-bottom: 1px solid #514020;
+        text-align: center;
+      }
+
+      .eyebrow {
+        margin: 0 0 10px;
+        font-size: 10px;
+        letter-spacing: 2px;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(34px, 5vw, 50px);
+        font-weight: 400;
+        letter-spacing: -1px;
+        line-height: 1.16;
+      }
+
+      .intro {
+        margin: 13px 0 0;
+        color: var(--muted);
+        font-size: 15px;
+      }
+
+      .message-list {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .message-card {
+        padding: 23px 25px;
+        border: 1px solid #211f19;
+        border-radius: 17px;
+        background: #1a1916;
+      }
+
+      .message-card--long {
+        grid-column: 1 / -1;
+      }
+
+      .quote {
+        display: block;
+        margin-bottom: 7px;
+        color: var(--gold);
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 26px;
+        font-weight: 700;
+        line-height: 1;
+      }
+
+      .author {
+        margin: 0 0 12px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 19px;
+        font-weight: 700;
+      }
+
+      .message-text {
+        margin: 0;
+        color: #e9e7e2;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+        overflow-wrap: anywhere;
+      }
+
+      .message-card--long .message-text {
+        max-width: 78ch;
+      }
+
+      .message-section-heading {
+        margin: 24px 0 12px;
+        color: var(--bright-gold);
+        font-size: 19px;
+        font-weight: 400;
+      }
+
+      .empty-state {
+        margin: 0;
+        padding: 30px 24px;
+        border: 1px dashed #443a28;
+        border-radius: 14px;
+        color: var(--muted);
+        font-size: 15px;
+        text-align: center;
+      }
+
+      .empty-state code {
+        color: var(--bright-gold);
+        font-family: Consolas, "Courier New", monospace;
+        font-size: 0.95em;
+      }
+
+      footer {
+        padding: 19px 24px;
+        color: #9f998e;
+        background: #090909;
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 10px;
+      }
+
+      footer strong {
+        color: var(--bright-gold);
+      }
+
+      @media (max-width: 1024px) and (min-width: 769px) {
+        .nav-wrap {
+          width: calc(100% - 36px);
+        }
+
+        .message-list {
+          grid-template-columns: 1fr;
+          gap: 14px;
+        }
+
+        .message-card {
+          padding: 21px 22px;
+        }
+      }
+
+      @media (max-width: 620px) {
+        .nav-wrap {
+          width: calc(100% - 36px);
+        }
+
+        .nav-links {
+          gap: 12px;
+          font-size: 9px;
+          letter-spacing: 0.7px;
+        }
+
+        main {
+          padding: 48px 18px 56px;
+        }
+
+        .page-heading {
+          margin-bottom: 25px;
+        }
+
+        .message-list {
+          grid-template-columns: 1fr;
+          gap: 13px;
+        }
+
+        .message-card--long {
+          grid-column: auto;
+        }
+
+        .message-card {
+          padding: 21px 20px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          scroll-behavior: auto !important;
+        }
+      }
+
+      .menu-toggle {
+        display: none;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        min-height: 40px;
+        padding: 8px 11px;
+        border: 1px solid #80632d;
+        border-radius: 2px;
+        background: #11100d;
+        color: var(--bright-gold);
+        font: 700 10px Arial, Helvetica, sans-serif;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        cursor: pointer;
+      }
+
+      .menu-icon,
+      .menu-icon::before,
+      .menu-icon::after {
+        display: block;
+        width: 17px;
+        height: 2px;
+        background: currentColor;
+        transition: transform 160ms ease;
+      }
+
+      .menu-icon { position: relative; }
+      .menu-icon::before,
+      .menu-icon::after {
+        position: absolute;
+        left: 0;
+        content: "";
+      }
+      .menu-icon::before { top: -5px; }
+      .menu-icon::after { top: 5px; }
+      .menu-toggle[aria-expanded="true"] .menu-icon { background: transparent; }
+      .menu-toggle[aria-expanded="true"] .menu-icon::before {
+        top: 0;
+        transform: rotate(45deg);
+      }
+      .menu-toggle[aria-expanded="true"] .menu-icon::after {
+        top: 0;
+        transform: rotate(-45deg);
+      }
+
+      .menu-toggle:focus-visible,
+      .nav-links a:focus-visible {
+        outline: 2px solid var(--bright-gold);
+        outline-offset: 3px;
+      }
+
+      @media (max-width: 760px) {
+        .site-header { height: auto; }
+        .nav-wrap {
+          position: relative;
+          width: calc(100% - 36px);
+          min-height: 58px;
+          flex-wrap: wrap;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+          gap: 10px;
+          padding: 9px 0;
+        }
+        .js .menu-toggle { display: inline-flex; }
+        .nav-links {
+          flex-basis: 100%;
+          flex-direction: column;
+          gap: 0;
+          padding: 4px 0 2px;
+          border-top: 1px solid #302719;
+        }
+        .nav-links a {
+          display: block;
+          padding: 12px 4px;
+          border-bottom: 1px solid rgba(214, 173, 80, 0.13);
+        }
+        .js .nav-links:not(.is-open) { display: none; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav-wrap" aria-label="Main navigation">
+        <a class="brand" href="index.html#top">A Birthday Tribute</a>
+        <button class="menu-toggle" type="button" aria-controls="primary-navigation" aria-expanded="false" aria-label="Open navigation menu">
+          <span class="menu-icon" aria-hidden="true"></span>
+          Menu
+        </button>
+        <div class="nav-links" id="primary-navigation">
+          <a href="index.html#tribute">Tribute</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="media.html">Media</a>
+          <a href="messages.html" aria-current="page">Messages</a>
+          <a href="letter.html">Letter</a>
+          <a href="index.html#blessing">Blessing</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <div class="content">
+        <header class="page-heading">
+          <p class="eyebrow">Birthday tributes</p>
+          <h1>Messages of Love &amp; Celebration</h1>
+          <p class="intro">
+            Kind words, prayers, and birthday wishes shared for this special day.
+          </p>
+        </header>
+        <div class="message-list" id="message-list" aria-live="polite"></div>
+        <p class="empty-state" id="empty-state">
+          Your birthday messages will appear here. Add each sender’s name and greeting in
+          <code>messages.js</code>.
+        </p>
+      </div>
+    </main>
+
+    <footer>
+      Created with love in celebration of <strong>Archbishop Emmah Gospel Isong</strong> ·
+      <time datetime="2026-10-26">26 October 2026</time>
+    </footer>
+    <script src="messages.js"></script>
+    <script>
+      const messageList = document.getElementById("message-list");
+      const emptyState = document.getElementById("empty-state");
+      const sectionHeadings = new Set([
+        "Faith, Freedom and the Wider Christian Community",
+        "From the Church to Public Service",
+        "A Growing Role in Pentecostal Leadership",
+        "The Responsibilities Behind the Recognition",
+      ]);
+
+      birthdayMessages.forEach(({ name, message }) => {
+        const card = document.createElement("article");
+        card.className = "message-card";
+
+        if (message.length > 500) {
+          card.classList.add("message-card--long");
+        }
+
+        const quote = document.createElement("span");
+        quote.className = "quote";
+        quote.setAttribute("aria-hidden", "true");
+        quote.textContent = "”";
+
+        const author = document.createElement("h2");
+        author.className = "author";
+        author.textContent = name;
+        card.append(quote, author);
+
+        message.split(/\n\s*\n/).forEach((paragraph) => {
+          const element = document.createElement(
+            sectionHeadings.has(paragraph) ? "h3" : "p",
+          );
+          element.className = sectionHeadings.has(paragraph)
+            ? "message-section-heading"
+            : "message-text";
+          element.textContent = paragraph;
+          card.append(element);
+        });
+
+        messageList.append(card);
+      });
+
+      if (birthdayMessages.length > 0) {
+        emptyState.hidden = true;
+      }
+    </script>
+  </body>
+</html>
