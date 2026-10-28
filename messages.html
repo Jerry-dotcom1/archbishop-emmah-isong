@@ -360,94 +360,714 @@
         }
         .js .nav-links:not(.is-open) { display: none; }
       }
+
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 72px;
+      }
+
+      body {
+        background: #050607;
+      }
+
+      .site-header {
+        min-height: 64px;
+        border-top: 2px solid #d6ad50;
+        border-bottom: 1px solid #a77c29;
+      }
+
+      .nav-wrap {
+        width: min(1200px, calc(100% - 48px));
+        min-height: 61px;
+        gap: 20px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        min-width: 235px;
+        color: var(--bright-gold);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 15px;
+        font-weight: 700;
+        letter-spacing: 0;
+        line-height: 1.05;
+        text-transform: none;
+      }
+
+      .brand-mark {
+        color: #f0c64e;
+        font-size: 28px;
+      }
+
+      .brand-copy { display: grid; gap: 3px; }
+
+      .brand-copy small {
+        color: #e6dece;
+        font: 8px Arial, Helvetica, sans-serif;
+        letter-spacing: 1px;
+      }
+
+      .nav-links {
+        align-items: center;
+        gap: clamp(13px, 2.2vw, 29px);
+        font-size: 11px;
+        letter-spacing: 0;
+        text-transform: none;
+      }
+
+      .nav-links a[aria-current="page"] { position: relative; }
+
+      .nav-links a[aria-current="page"]::after {
+        position: absolute;
+        right: 0;
+        bottom: -19px;
+        left: 0;
+        height: 3px;
+        border-radius: 3px 3px 0 0;
+        background: #f0c64e;
+        content: "";
+      }
+
+      .message-hero {
+        display: grid;
+        min-height: 142px;
+        place-content: center;
+        padding: 18px 24px;
+        border-bottom: 1px solid #a77c29;
+        background:
+          radial-gradient(ellipse at 50% 120%, rgba(201, 146, 43, 0.18), transparent 58%),
+          radial-gradient(ellipse at 8% 50%, rgba(116, 72, 18, 0.25), transparent 34%),
+          radial-gradient(ellipse at 96% 50%, rgba(133, 87, 22, 0.23), transparent 34%),
+          linear-gradient(90deg, #090a0b, #11100d 52%, #08090a);
+        text-align: center;
+      }
+
+      .message-hero h1 {
+        margin: 0;
+        color: #f3cb62;
+        font-size: clamp(34px, 5vw, 48px);
+        font-weight: 700;
+        letter-spacing: -1.5px;
+        line-height: 1.15;
+      }
+
+      .message-hero p {
+        margin: 5px 0 0;
+        color: var(--muted);
+        font-size: 15px;
+        line-height: 1.4;
+      }
+
+      main {
+        min-height: 0;
+        padding: 16px 24px 18px;
+        background: #050607;
+      }
+
+      .content {
+        width: min(1140px, 100%);
+      }
+
+      .message-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.95fr);
+        align-items: start;
+        gap: 14px;
+      }
+
+      .message-panel,
+      .well-wishers,
+      .stay-connected {
+        border: 1px solid #a07a2c;
+        border-radius: 6px;
+        background: linear-gradient(145deg, #080d13, #07090c);
+      }
+
+      .message-panel {
+        padding: 17px 19px;
+      }
+
+      .panel-heading {
+        display: flex;
+        align-items: center;
+        gap: 11px;
+        margin: 0 0 3px;
+        color: #f1cf68;
+        font-size: clamp(22px, 3vw, 29px);
+        line-height: 1.2;
+      }
+
+      .panel-icon {
+        color: #efc84c;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 28px;
+        line-height: 1;
+      }
+
+      .panel-intro {
+        margin: 0 0 14px;
+        color: #e3e1dd;
+        font: 13px/1.45 Arial, Helvetica, sans-serif;
+      }
+
+      .message-form {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .message-form input,
+      .message-form textarea,
+      .subscribe-form input {
+        width: 100%;
+        border: 1px solid #78818a;
+        border-radius: 6px;
+        background: #0c131a;
+        color: #f5f1e9;
+        font: 12px Arial, Helvetica, sans-serif;
+      }
+
+      .message-form input {
+        min-height: 39px;
+        padding: 0 12px;
+      }
+
+      .message-form textarea {
+        grid-column: 1 / -1;
+        min-height: 108px;
+        resize: vertical;
+        padding: 11px 12px;
+      }
+
+      .message-form input:focus-visible,
+      .message-form textarea:focus-visible,
+      .subscribe-form input:focus-visible {
+        outline: 2px solid #e8c34c;
+        outline-offset: 2px;
+      }
+
+      .form-meta {
+        grid-column: 1 / -1;
+        display: flex;
+        justify-content: flex-end;
+        margin-top: -8px;
+        color: #bab8b4;
+        font: 10px Arial, Helvetica, sans-serif;
+      }
+
+      .submit-message {
+        grid-column: 1 / -1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        min-height: 43px;
+        margin-top: 2px;
+        border: 0;
+        border-radius: 25px;
+        background: linear-gradient(100deg, #f8d967, #eab738);
+        color: #211806;
+        font: 700 15px Georgia, "Times New Roman", serif;
+        cursor: pointer;
+      }
+
+      .submit-message:hover,
+      .submit-message:focus-visible,
+      .subscribe-button:hover,
+      .subscribe-button:focus-visible {
+        filter: brightness(1.08);
+      }
+
+      .form-notice {
+        grid-column: 1 / -1;
+        margin: -2px 0 0;
+        color: #e6dfce;
+        font: 10px/1.4 Arial, Helvetica, sans-serif;
+      }
+
+      .form-notice::before {
+        margin-right: 7px;
+        color: #efc84c;
+        content: "◆";
+      }
+
+      .form-status {
+        grid-column: 1 / -1;
+        margin: 0;
+        color: #f1cf68;
+        font: 12px/1.4 Arial, Helvetica, sans-serif;
+      }
+
+      .well-wishers {
+        padding: 13px 15px 12px;
+      }
+
+      .well-wishers .panel-heading {
+        gap: 8px;
+        margin-bottom: 2px;
+        font-size: 21px;
+      }
+
+      .well-wishers .panel-icon { font-size: 21px; }
+
+      .well-wishers .panel-icon {
+        position: relative;
+        display: inline-block;
+        width: 21px;
+        height: 17px;
+        border: 2px solid #efc84c;
+        border-radius: 9px;
+        font-size: 0;
+      }
+
+      .well-wishers .panel-icon::after {
+        position: absolute;
+        bottom: -5px;
+        left: 3px;
+        width: 5px;
+        height: 5px;
+        border-bottom: 2px solid #efc84c;
+        border-left: 2px solid #efc84c;
+        background: #080d13;
+        content: "";
+        transform: skewY(-35deg);
+      }
+
+      .well-wishers > .panel-intro {
+        margin-bottom: 9px;
+      }
+
+      .message-list {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 7px;
+      }
+
+      .message-card {
+        display: grid;
+        grid-template-columns: 37px minmax(0, 1fr);
+        gap: 9px;
+        padding: 8px 9px;
+        border: 1px solid #795d27;
+        border-radius: 8px;
+        background: rgba(5, 9, 13, 0.75);
+      }
+
+      .message-card[hidden] { display: none; }
+
+      .author-initials {
+        display: grid;
+        width: 34px;
+        height: 34px;
+        place-items: center;
+        border: 1px solid #b68b36;
+        border-radius: 50%;
+        color: #efc84c;
+        font: 12px Arial, Helvetica, sans-serif;
+      }
+
+      .message-card-content { min-width: 0; }
+
+      .author {
+        margin: 0 0 2px;
+        color: #fff;
+        font: 700 11px Arial, Helvetica, sans-serif;
+      }
+
+      .message-text {
+        display: -webkit-box;
+        overflow: hidden;
+        margin: 0;
+        color: #e1e0de;
+        font: 10px/1.4 Arial, Helvetica, sans-serif;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+      }
+
+      .quote {
+        float: right;
+        color: #a77c29;
+        font: 700 21px Georgia, "Times New Roman", serif;
+        line-height: 0.8;
+      }
+
+      .message-details {
+        margin-top: 4px;
+        color: #b6b2aa;
+        font: 9px Arial, Helvetica, sans-serif;
+      }
+
+      .message-details summary {
+        width: fit-content;
+        color: #e9c653;
+        cursor: pointer;
+      }
+
+      .message-details[open] .message-text {
+        display: block;
+        margin-top: 6px;
+        white-space: pre-line;
+      }
+
+      .message-more {
+        display: block;
+        width: fit-content;
+        margin: 8px auto 0;
+        padding: 6px 19px;
+        border: 1px solid #ad8433;
+        border-radius: 20px;
+        background: transparent;
+        color: #f0cc5d;
+        font: 700 10px Arial, Helvetica, sans-serif;
+        cursor: pointer;
+      }
+
+      .message-more:hover,
+      .message-more:focus-visible { background: #221b0e; }
+
+      .stay-connected {
+        display: grid;
+        grid-template-columns: minmax(230px, 1fr) minmax(300px, 1fr);
+        align-items: center;
+        gap: 16px;
+        margin-top: 14px;
+        padding: 12px 15px;
+      }
+
+      .stay-copy {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .bell-icon {
+        position: relative;
+        display: grid;
+        flex: 0 0 54px;
+        width: 54px;
+        height: 54px;
+        place-items: center;
+        border: 1px solid #a07a2c;
+        border-radius: 50%;
+        background: #211a0c;
+        color: #f2cb51;
+        font-size: 0;
+      }
+
+      .bell-icon::before {
+        width: 21px;
+        height: 20px;
+        border-radius: 12px 12px 5px 5px;
+        background: #f2cb51;
+        box-shadow: inset 0 0 0 3px #8f6c26;
+        content: "";
+      }
+
+      .bell-icon::after {
+        position: absolute;
+        bottom: 14px;
+        width: 25px;
+        height: 3px;
+        border-radius: 50%;
+        background: #f2cb51;
+        content: "";
+      }
+
+      .stay-copy h2 {
+        margin: 0 0 2px;
+        color: #f1cf68;
+        font-size: 23px;
+      }
+
+      .stay-copy p {
+        margin: 0;
+        color: #ddd9d2;
+        font: 11px/1.4 Arial, Helvetica, sans-serif;
+      }
+
+      .subscribe-form {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 7px;
+      }
+
+      .subscribe-form input {
+        min-height: 36px;
+        padding: 0 11px;
+        font-size: 10px;
+      }
+
+      .subscribe-button {
+        min-width: 102px;
+        border: 0;
+        border-radius: 22px;
+        background: linear-gradient(100deg, #f8d967, #eab738);
+        color: #211806;
+        font: 700 10px Arial, Helvetica, sans-serif;
+        cursor: pointer;
+      }
+
+      .subscribe-status {
+        grid-column: 1 / -1;
+        margin: 0;
+        color: #efcf68;
+        font: 10px/1.4 Arial, Helvetica, sans-serif;
+      }
+
+      footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+        padding: 13px max(24px, calc((100% - 1140px) / 2));
+        border-top: 1px solid #40331b;
+        color: #c6b98f;
+        background: #08090a;
+        text-align: left;
+      }
+
+      footer strong { color: #f0cc5d; }
+
+      footer a {
+        display: inline-grid;
+        width: 26px;
+        height: 26px;
+        place-items: center;
+        border: 1px solid #a07a2c;
+        border-radius: 50%;
+        color: #f0cc5d;
+      }
+
+      @media (max-width: 850px) {
+        .message-layout { grid-template-columns: 1fr; }
+        .stay-connected { grid-template-columns: 1fr 1fr; }
+      }
+
+      @media (max-width: 760px) {
+        .nav-wrap { width: calc(100% - 36px); }
+        .nav-links a[aria-current="page"]::after { display: none; }
+        main { padding: 14px 18px; }
+      }
+
+      @media (max-width: 560px) {
+        .brand { min-width: 0; font-size: 13px; }
+        .brand-mark { font-size: 23px; }
+        .message-hero { min-height: 136px; }
+        .message-hero p { font-size: 13px; }
+        .message-panel { padding: 15px 13px; }
+        .message-form { grid-template-columns: 1fr; }
+        .message-form textarea,
+        .form-meta,
+        .submit-message,
+        .form-notice,
+        .form-status { grid-column: 1; }
+        .stay-connected { grid-template-columns: 1fr; }
+        footer { align-items: center; flex-wrap: wrap; padding-inline: 18px; }
+      }
     </style>
   </head>
   <body>
     <header class="site-header">
       <nav class="nav-wrap" aria-label="Main navigation">
-        <a class="brand" href="index.html#top">A Birthday Tribute</a>
+ <a class="brand" href="index.html#top">A Birthday Tribute</a>
         <button class="menu-toggle" type="button" aria-controls="primary-navigation" aria-expanded="false" aria-label="Open navigation menu">
           <span class="menu-icon" aria-hidden="true"></span>
           Menu
         </button>
         <div class="nav-links" id="primary-navigation">
-          <a href="index.html#tribute">Tribute</a>
+          <a href="index.html#top">Home</a>
           <a href="gallery.html">Gallery</a>
-          <a href="media.html">Media</a>
+          <a href="letter.html">Letters</a>
           <a href="messages.html" aria-current="page">Messages</a>
-          <a href="letter.html">Letter</a>
+          <a href="media.html">Media</a>
           <a href="index.html#blessing">Blessing</a>
         </div>
       </nav>
     </header>
 
+    <section class="message-hero" aria-labelledby="message-page-title">
+      <h1 id="message-page-title">Leave a Birthday Message</h1>
+      <p>Share your love, prayers and congratulations with<br />Archbishop Dr. Emmah Gospel Isong on his 62nd birthday.</p>
+    </section>
+
     <main>
       <div class="content">
-        <header class="page-heading">
-          <p class="eyebrow">Birthday tributes</p>
-          <h1>Messages of Love &amp; Celebration</h1>
-          <p class="intro">
-            Kind words, prayers, and birthday wishes shared for this special day.
-          </p>
-        </header>
-        <div class="message-list" id="message-list" aria-live="polite"></div>
-        <p class="empty-state" id="empty-state">
-          Your birthday messages will appear here. Add each sender’s name and greeting in
-          <code>messages.js</code>.
-        </p>
+        <div class="message-layout">
+          <section class="message-panel" id="send-message" aria-labelledby="send-heading">
+            <h2 class="panel-heading" id="send-heading"><span class="panel-icon" aria-hidden="true">✉</span>Send Your Message</h2>
+            <p class="panel-intro">Your message means a lot! Leave a birthday wish, prayer or word of encouragement for the Archbishop.</p>
+            <form class="message-form" id="message-form" action="https://formspree.io/f/mwllbzvv" method="POST">
+              <input type="hidden" name="_subject" value="New birthday message for Archbishop Emmah Gospel Isong" />
+              <input name="name" type="text" autocomplete="name" placeholder="Your Name (Optional)" aria-label="Your name (optional)" />
+              <input name="email" type="email" autocomplete="email" placeholder="Your Email (Optional)" aria-label="Your email (optional)" />
+              <textarea name="message" id="birthday-message" maxlength="500" required placeholder="Your Birthday Message..." aria-label="Your birthday message"></textarea>
+              <div class="form-meta"><span id="message-count">0/500</span></div>
+              <button class="submit-message" type="submit"><span aria-hidden="true">➤</span> Send Message <span aria-hidden="true">→</span></button>
+              <p class="form-notice">Messages are reviewed before appearing on the website.</p>
+              <p class="form-status" id="form-status" role="status" hidden></p>
+            </form>
+          </section>
+
+          <section class="well-wishers" aria-labelledby="well-wishers-heading">
+            <h2 class="panel-heading" id="well-wishers-heading"><span class="panel-icon" aria-hidden="true">☏</span>Messages from Well-Wishers</h2>
+            <p class="panel-intro">Here are some of the birthday messages already received.</p>
+            <div class="message-list" id="message-list" aria-live="polite"></div>
+            <button class="message-more" id="message-more" type="button" hidden>View More Messages →</button>
+            <p class="empty-state" id="empty-state" hidden>No birthday messages have been added yet.</p>
+          </section>
+        </div>
+
+        <section class="stay-connected" aria-labelledby="stay-connected-heading">
+          <div class="stay-copy">
+            <span class="bell-icon" aria-hidden="true">♟</span>
+            <div>
+              <h2 id="stay-connected-heading">Stay Connected</h2>
+              <p>Subscribe to get updates, more birthday messages,<br />photos and the latest news about the Archbishop.</p>
+            </div>
+          </div>
+          <form class="subscribe-form" id="subscribe-form">
+            <input name="email" type="email" autocomplete="email" placeholder="Your Email Address" aria-label="Your email address" required />
+            <button class="subscribe-button" type="submit">➤ Subscribe</button>
+            <p class="subscribe-status" id="subscribe-status" role="status" hidden></p>
+          </form>
+        </section>
       </div>
     </main>
 
     <footer>
-      Created with love in celebration of <strong>Archbishop Emmah Gospel Isong</strong> ·
-      <time datetime="2026-10-26">26 October 2026</time>
+      <span><strong>Archbishop Dr. Emmah Gospel Isong</strong><br />62ND BIRTHDAY TRIBUTE</span>
+      <span>Celebrating a life of faith, service and impact.</span>
+      <a href="index.html#top" aria-label="Back to home">↑</a>
     </footer>
     <script src="messages.js"></script>
     <script>
       const messageList = document.getElementById("message-list");
       const emptyState = document.getElementById("empty-state");
-      const sectionHeadings = new Set([
-        "Faith, Freedom and the Wider Christian Community",
-        "From the Church to Public Service",
-        "A Growing Role in Pentecostal Leadership",
-        "The Responsibilities Behind the Recognition",
-      ]);
+      const moreButton = document.getElementById("message-more");
+      const messageCards = [];
+      const visibleMessages = 4;
 
-      birthdayMessages.forEach(({ name, message }) => {
+      function initialsFor(name) {
+        return name
+          .trim()
+          .split(/\s+/)
+          .filter(Boolean)
+          .slice(0, 2)
+          .map((part) => part[0])
+          .join("")
+          .toUpperCase();
+      }
+
+      birthdayMessages.forEach(({ name, message }, index) => {
         const card = document.createElement("article");
         card.className = "message-card";
-
-        if (message.length > 500) {
-          card.classList.add("message-card--long");
-        }
 
         const quote = document.createElement("span");
         quote.className = "quote";
         quote.setAttribute("aria-hidden", "true");
         quote.textContent = "”";
 
+        const initials = document.createElement("span");
+        initials.className = "author-initials";
+        initials.setAttribute("aria-hidden", "true");
+        initials.textContent = initialsFor(name);
+
+        const content = document.createElement("div");
+        content.className = "message-card-content";
+
         const author = document.createElement("h2");
         author.className = "author";
         author.textContent = name;
-        card.append(quote, author);
 
-        message.split(/\n\s*\n/).forEach((paragraph) => {
-          const element = document.createElement(
-            sectionHeadings.has(paragraph) ? "h3" : "p",
-          );
-          element.className = sectionHeadings.has(paragraph)
-            ? "message-section-heading"
-            : "message-text";
-          element.textContent = paragraph;
-          card.append(element);
-        });
+        const paragraphs = message.trim().split(/\n\s*\n/);
+        const preview = document.createElement("p");
+        preview.className = "message-text";
+        preview.textContent = paragraphs[0];
+
+        const details = document.createElement("details");
+        details.className = "message-details";
+        const summary = document.createElement("summary");
+        summary.textContent = "Read full tribute";
+        details.append(summary);
+
+        const fullMessage = document.createElement("p");
+        fullMessage.className = "message-text";
+        fullMessage.textContent = message.trim();
+        details.append(fullMessage);
+
+        content.append(quote, author, preview, details);
+        card.append(initials, content);
+        card.hidden = index >= visibleMessages;
+        messageCards.push(card);
 
         messageList.append(card);
       });
 
-      if (birthdayMessages.length > 0) {
-        emptyState.hidden = true;
-      }
+      emptyState.hidden = birthdayMessages.length > 0;
+      moreButton.hidden = birthdayMessages.length <= visibleMessages;
+
+      moreButton.addEventListener("click", () => {
+        const isExpanded = moreButton.getAttribute("aria-expanded") === "true";
+        messageCards.forEach((card, index) => {
+          if (index >= visibleMessages) {
+            card.hidden = isExpanded;
+          }
+        });
+        moreButton.setAttribute("aria-expanded", String(!isExpanded));
+        moreButton.textContent = isExpanded ? "View More Messages →" : "Show Fewer Messages ↑";
+      });
+
+      const messageForm = document.getElementById("message-form");
+      const birthdayMessage = document.getElementById("birthday-message");
+      const messageCount = document.getElementById("message-count");
+      const formStatus = document.getElementById("form-status");
+
+      birthdayMessage.addEventListener("input", () => {
+        messageCount.textContent = `${birthdayMessage.value.length}/500`;
+      });
+
+      messageForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        formStatus.hidden = false;
+        const submitButton = messageForm.querySelector('button[type="submit"]');
+        submitButton.disabled = true;
+        formStatus.textContent = "Sending your birthday message...";
+
+        try {
+          const response = await fetch(messageForm.action, {
+            method: "POST",
+            body: new FormData(messageForm),
+            headers: { Accept: "application/json" },
+          });
+          const result = await response.json();
+
+          if (!response.ok || result.ok !== true) {
+            const serviceMessage = Array.isArray(result.errors)
+              ? result.errors.map((error) => error.message).filter(Boolean).join(" ")
+              : result.error || result.message;
+            throw new Error(serviceMessage || "The message service could not accept your message.");
+          }
+
+          messageForm.reset();
+          messageCount.textContent = "0/500";
+          formStatus.textContent = "Your birthday message was sent successfully. Thank you!";
+        } catch (error) {
+          formStatus.textContent = `Your message could not be sent. ${error.message || "Please check your connection and try again."}`;
+        } finally {
+          submitButton.disabled = false;
+        }
+      });
+
+      const subscribeForm = document.getElementById("subscribe-form");
+      const subscribeStatus = document.getElementById("subscribe-status");
+
+      subscribeForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        subscribeStatus.hidden = false;
+        subscribeStatus.textContent = "Email subscriptions are not available yet. Your address has not been submitted.";
+      });
     </script>
   </body>
 </html>

@@ -361,42 +361,513 @@
         }
         .js .nav-links:not(.is-open) { display: none; }
       }
+
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 72px;
+      }
+
+      body {
+        --panel: #080d13;
+        --panel-line: #80632d;
+        background: #050607;
+      }
+
+      .site-header {
+        min-height: 64px;
+        border-top: 2px solid #d6ad50;
+        border-bottom: 1px solid #a77c29;
+      }
+
+      .nav-wrap {
+        width: min(1200px, calc(100% - 48px));
+        min-height: 61px;
+        gap: 20px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        min-width: 235px;
+        color: var(--bright-gold);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 15px;
+        font-weight: 700;
+        letter-spacing: 0;
+        line-height: 1.05;
+        text-transform: none;
+      }
+
+      .brand-mark {
+        color: #f0c64e;
+        font-size: 28px;
+      }
+
+      .brand-copy {
+        display: grid;
+        gap: 3px;
+      }
+
+      .brand-copy small {
+        color: #e6dece;
+        font: 8px Arial, Helvetica, sans-serif;
+        letter-spacing: 1px;
+      }
+
+      .nav-links {
+        align-items: center;
+        gap: clamp(13px, 2.2vw, 29px);
+        font-size: 11px;
+        letter-spacing: 0;
+        text-transform: none;
+      }
+
+      .nav-links a[aria-current="page"] {
+        position: relative;
+      }
+
+      .nav-links a[aria-current="page"]::after {
+        position: absolute;
+        right: 0;
+        bottom: -19px;
+        left: 0;
+        height: 3px;
+        border-radius: 3px 3px 0 0;
+        background: #f0c64e;
+        content: "";
+      }
+
+      .hero-banner {
+        position: relative;
+        display: grid;
+        min-height: 156px;
+        place-content: center;
+        overflow: hidden;
+        padding: 18px 24px 20px;
+        border-bottom: 1px solid #aa812c;
+        background:
+          radial-gradient(ellipse at 50% 115%, rgba(201, 146, 43, 0.18), transparent 56%),
+          radial-gradient(ellipse at 6% 45%, rgba(116, 72, 18, 0.3), transparent 35%),
+          radial-gradient(ellipse at 96% 48%, rgba(133, 87, 22, 0.25), transparent 34%),
+          linear-gradient(90deg, #090a0b, #11100d 52%, #08090a);
+        text-align: center;
+      }
+
+      .hero-banner::before,
+      .hero-banner::after {
+        position: absolute;
+        top: 50%;
+        width: min(27vw, 330px);
+        height: 1px;
+        background: linear-gradient(90deg, transparent, #b38b3e);
+        content: "";
+      }
+
+      .hero-banner::before { left: 5%; }
+      .hero-banner::after {
+        right: 5%;
+        transform: scaleX(-1);
+      }
+
+      .hero-banner .eyebrow {
+        margin: 0 0 2px;
+        color: #e3bd54;
+        font-size: 9px;
+      }
+
+      .hero-banner h1 {
+        color: #f3cb62;
+        font-size: clamp(36px, 5vw, 48px);
+        font-weight: 700;
+        letter-spacing: -1.5px;
+      }
+
+      .hero-banner .intro {
+        margin: 2px 0 0;
+        font-size: 14px;
+        line-height: 1.35;
+      }
+
+      main {
+        min-height: calc(100vh - 128px);
+        padding: 14px 24px 30px;
+        background: #050607;
+      }
+
+      .content {
+        width: min(1200px, 100%);
+      }
+
+      .gallery-controls {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin: 0 0 13px;
+      }
+
+      .filter-chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px;
+      }
+
+      .filter-chip {
+        min-width: 64px;
+        padding: 6px 15px;
+        border: 1px solid #49391e;
+        border-radius: 18px;
+        background: #080a0c;
+        color: #e7dfd0;
+        font: 11px Arial, Helvetica, sans-serif;
+        cursor: pointer;
+      }
+
+      .filter-chip:hover,
+      .filter-chip:focus-visible,
+      .filter-chip[aria-pressed="true"] {
+        border-color: #e6bf50;
+        background: linear-gradient(#f5d365, #dcae35);
+        color: #18120a;
+      }
+
+      .gallery-search {
+        display: flex;
+        align-items: center;
+        width: min(260px, 100%);
+        padding: 0 10px;
+        border: 1px solid #735b2a;
+        border-radius: 20px;
+        background: #090c10;
+        color: #e8c85e;
+      }
+
+      .gallery-search input {
+        width: 100%;
+        min-height: 32px;
+        border: 0;
+        outline: 0;
+        background: transparent;
+        color: var(--cream);
+        font: 11px Arial, Helvetica, sans-serif;
+      }
+
+      .gallery-search input::placeholder { color: #9c9b9a; }
+
+      .gallery-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 11px;
+      }
+
+      .gallery-card {
+        min-width: 0;
+        overflow: hidden;
+        border: 1px solid #a07a2c;
+        border-radius: 6px;
+        background: linear-gradient(145deg, #0c1117, #07090c);
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+      }
+
+      .gallery-photo {
+        position: relative;
+        display: block;
+        overflow: hidden;
+      }
+
+      .gallery-grid .gallery-photo img {
+        aspect-ratio: 1.7 / 1;
+        border: 0;
+        border-bottom: 1px solid #735b2a;
+        object-fit: cover;
+      }
+
+      .gallery-grid .gallery-photo .gallery-poster {
+        object-fit: contain;
+      }
+
+      .photo-type {
+        position: absolute;
+        top: 8px;
+        left: 8px;
+        padding: 3px 9px;
+        border: 1px solid rgba(246, 217, 142, 0.65);
+        border-radius: 14px;
+        background: rgba(3, 5, 7, 0.88);
+        color: #fff8e4;
+        font: 10px Arial, Helvetica, sans-serif;
+      }
+
+      .gallery-card-copy {
+        padding: 8px 10px 10px;
+      }
+
+      .gallery-card-copy h2 {
+        margin: 0 0 2px;
+        color: #f1d275;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 1.25;
+      }
+
+      .gallery-card-copy p {
+        display: -webkit-box;
+        overflow: hidden;
+        margin: 0;
+        color: #e5e3df;
+        font: 11px/1.45 Arial, Helvetica, sans-serif;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+      }
+
+      .gallery-card-link {
+        display: inline-block;
+        margin-top: 5px;
+        color: #e9c653;
+        font: 10px Arial, Helvetica, sans-serif;
+      }
+
+      .gallery-card-link:hover,
+      .gallery-card-link:focus-visible { text-decoration: underline; }
+
+      .engagement-note {
+        margin: -3px 0 12px;
+        color: #bdb8ac;
+        font: 10px/1.4 Arial, Helvetica, sans-serif;
+      }
+
+      .engagement-status {
+        margin: 0 0 12px;
+        color: #f1d275;
+        font: 11px/1.4 Arial, Helvetica, sans-serif;
+      }
+
+      .engagement-status[hidden] { display: none; }
+
+      .engagement {
+        padding: 0 10px 10px;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      .engagement-actions {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 7px;
+      }
+
+      .engagement-button {
+        min-height: 27px;
+        padding: 4px 9px;
+        border: 1px solid #5b4926;
+        border-radius: 16px;
+        background: #090c10;
+        color: #e8dfcc;
+        font: 10px Arial, Helvetica, sans-serif;
+        cursor: pointer;
+      }
+
+      .engagement-button:hover,
+      .engagement-button:focus-visible,
+      .engagement-button[aria-pressed="true"] {
+        border-color: #e1bb4e;
+        color: #f5d365;
+      }
+
+      .engagement-comments {
+        margin-top: 9px;
+        padding-top: 8px;
+        border-top: 1px solid #49391e;
+      }
+
+      .engagement-comments[hidden] { display: none; }
+
+      .comment-list {
+        display: grid;
+        gap: 6px;
+        max-height: 190px;
+        overflow: auto;
+        margin: 0 0 9px;
+        padding: 0;
+        list-style: none;
+      }
+
+      .comment-item {
+        padding: 6px 8px;
+        border: 1px solid #302719;
+        border-radius: 5px;
+        color: #e5e3df;
+        font: 10px/1.4 Arial, Helvetica, sans-serif;
+        overflow-wrap: anywhere;
+      }
+
+      .comment-item strong {
+        display: block;
+        margin-bottom: 2px;
+        color: #f1d275;
+      }
+
+      .delete-comment {
+        margin-top: 5px;
+        padding: 3px 7px;
+        border: 1px solid #6b3b32;
+        border-radius: 12px;
+        background: #160c0a;
+        color: #f0b3a5;
+        font: 9px Arial, Helvetica, sans-serif;
+        cursor: pointer;
+      }
+
+      .delete-comment:hover,
+      .delete-comment:focus-visible {
+        border-color: #ef9c88;
+        color: #ffd1c5;
+      }
+
+      .comment-form {
+        display: grid;
+        gap: 6px;
+      }
+
+      .comment-form input,
+      .comment-form textarea {
+        width: 100%;
+        min-width: 0;
+        padding: 7px 8px;
+        border: 1px solid #5a6068;
+        border-radius: 5px;
+        background: #0c131a;
+        color: var(--cream);
+        font: 10px Arial, Helvetica, sans-serif;
+      }
+
+      .comment-form textarea {
+        min-height: 55px;
+        resize: vertical;
+      }
+
+      .comment-form button {
+        justify-self: start;
+        padding: 6px 11px;
+        border: 1px solid #a07a2c;
+        border-radius: 15px;
+        background: #171309;
+        color: #f1d275;
+        font: 10px Arial, Helvetica, sans-serif;
+        cursor: pointer;
+      }
+
+      .gallery-video {
+        grid-column: auto;
+        align-self: start;
+        margin: 0;
+        overflow: hidden;
+        border: 1px solid #a07a2c;
+        border-radius: 6px;
+        background: #080b0f;
+      }
+
+      .gallery-video video {
+        width: 100%;
+        border: 0;
+      }
+
+      .video-caption {
+        margin: 0;
+        padding: 8px 10px;
+        color: #f1d275;
+        text-align: left;
+        font-size: 13px;
+      }
+
+      .gallery-empty {
+        grid-column: 1 / -1;
+        margin: 0;
+        padding: 28px;
+        border: 1px solid #45381f;
+        color: var(--muted);
+        text-align: center;
+      }
+
+      footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 14px max(24px, calc((100% - 1200px) / 2));
+        border-top: 1px solid #40331b;
+        color: #c6b98f;
+        text-align: left;
+      }
+
+      @media (max-width: 900px) {
+        .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .hero-banner::before,
+        .hero-banner::after { width: 20%; }
+      }
+
+      @media (max-width: 760px) {
+        .nav-wrap { width: calc(100% - 36px); }
+        .nav-links a[aria-current="page"]::after { display: none; }
+        .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .hero-banner { min-height: 150px; }
+        .hero-banner::before,
+        .hero-banner::after { width: 10%; }
+        main { padding: 13px 18px 25px; }
+      }
+
+      @media (max-width: 520px) {
+        .brand { min-width: 0; font-size: 13px; }
+        .brand-mark { font-size: 23px; }
+        .gallery-grid { grid-template-columns: 1fr; }
+        .gallery-controls { align-items: stretch; }
+        .gallery-search { width: 100%; }
+        .hero-banner .intro { max-width: 29ch; margin-inline: auto; }
+        footer { align-items: flex-start; flex-direction: column; }
+      }
     </style>
   </head>
   <body>
     <header class="site-header">
       <nav class="nav-wrap" aria-label="Main navigation">
-        <a class="brand" href="index.html#top">A Birthday Tribute</a>
+       <a class="brand" href="index.html#top">A Birthday Tribute</a>
         <button class="menu-toggle" type="button" aria-controls="primary-navigation" aria-expanded="false" aria-label="Open navigation menu">
           <span class="menu-icon" aria-hidden="true"></span>
           Menu
         </button>
         <div class="nav-links" id="primary-navigation">
-          <a href="index.html#tribute">Tribute</a>
+          <a href="index.html#top">Home</a>
           <a href="gallery.html" aria-current="page">Gallery</a>
-          <a href="media.html">Media</a>
+          <a href="letter.html">Letters</a>
           <a href="messages.html">Messages</a>
-          <a href="letter.html">Letter</a>
+          <a href="media.html">Media</a>
           <a href="index.html#blessing">Blessing</a>
         </div>
       </nav>
     </header>
 
+    <section class="hero-banner" aria-labelledby="gallery-title">
+      <p class="eyebrow">62nd birthday tribute</p>
+      <h1 id="gallery-title">Gallery</h1>
+      <p class="intro">Explore photos and videos celebrating the life, legacy<br />and impact of Archbishop Dr. Emmah Gospel Isong.</p>
+    </section>
+
     <main>
       <div class="content">
-        <header class="page-heading">
-          <p class="eyebrow">Moments &amp; memories</p>
-          <h1>A Life Worth Celebrating</h1>
-          <p class="intro">A few photographs in honour of this special milestone.</p>
-        </header>
-        <div class="gallery-controls" aria-label="Gallery filter">
-          <label for="gallery-filter">Filter</label>
-          <select id="gallery-filter" aria-label="Choose gallery items to view">
-            <option value="all">All</option>
-            <option value="images">Images</option>
-            <option value="videos">Videos</option>
-          </select>
+        <div class="gallery-controls">
+          <div class="filter-chips" role="group" aria-label="Filter gallery">
+            <button class="filter-chip" type="button" data-filter="all" aria-pressed="true">All</button>
+            <button class="filter-chip" type="button" data-filter="images" aria-pressed="false">Image</button>
+            <button class="filter-chip" type="button" data-filter="videos" aria-pressed="false">Video</button>
+          </div>
+          <label class="gallery-search">
+            <span aria-hidden="true">⌕</span>
+            <input id="gallery-search" type="search" placeholder="Search gallery..." aria-label="Search gallery" />
+          </label>
         </div>
+        <p class="engagement-note">Likes and comments are saved in this browser only. You can delete comments saved here. Use Share to send a gallery link to others.</p>
+        <p class="engagement-status" id="engagement-status" role="status" aria-live="polite" hidden></p>
         <div class="gallery-grid" id="gallery-grid">
           <a class="gallery-item image-item" href="assets/gallery-1.jpg" target="_blank" rel="noopener">
             <img
@@ -720,34 +1191,358 @@
       </div>
     </main>
 
+    <p class="gallery-empty" id="gallery-empty" hidden>No gallery items match your search.</p>
     <script>
-      const filterSelect = document.getElementById('gallery-filter');
-      const galleryItems = document.querySelectorAll('.gallery-item');
-      const videoItems = document.querySelectorAll('.video-item');
+      const galleryGrid = document.getElementById("gallery-grid");
+      const filterButtons = document.querySelectorAll(".filter-chip");
+      const searchInput = document.getElementById("gallery-search");
+      const emptyState = document.getElementById("gallery-empty");
+      const engagementStatus = document.getElementById("engagement-status");
+      const engagementStorageKey = "birthday-gallery-engagement-v1";
+      let engagementState = {};
+      let engagementStorageError = "";
+      const featuredTitles = new Map([
+        ["gallery-1.jpg", "A Man of God, A Blessing to Many"],
+        ["gallery-2.jpg", "The Journey of Faith"],
+        ["gallery-3.jpg", "Inspiring the Next Generation"],
+        ["gallery-birthday-arrival.png", "A Birthday Welcome"],
+        ["gallery-family-cake.png", "Celebrating 62 Years"],
+        ["gallery-birthday-guests.png", "With Friends and Well-Wishers"],
+      ]);
 
-      function updateGalleryFilter(value) {
-        const showImages = value === 'images';
-        const showVideos = value === 'videos';
-
-        galleryItems.forEach((item) => {
-          const shouldShow = value === 'all' || showImages;
-          item.classList.toggle('is-hidden', !shouldShow);
-        });
-
-        videoItems.forEach((item) => {
-          const shouldShow = value === 'all' || showVideos;
-          item.classList.toggle('is-hidden', !shouldShow);
-        });
+      function setEngagementStatus(message) {
+        engagementStatus.textContent = message;
+        engagementStatus.hidden = !message;
       }
 
-      filterSelect.addEventListener('change', (event) => {
-        updateGalleryFilter(event.target.value);
+      try {
+        const savedEngagement = localStorage.getItem(engagementStorageKey);
+        if (savedEngagement) {
+          const parsedEngagement = JSON.parse(savedEngagement);
+          if (!parsedEngagement || typeof parsedEngagement !== "object" || Array.isArray(parsedEngagement)) {
+            throw new Error("Saved gallery interactions have an invalid format.");
+          }
+          engagementState = parsedEngagement;
+        }
+      } catch (error) {
+        engagementStorageError = error.message;
+        setEngagementStatus("Saved likes and comments could not be loaded. New interactions may not be saved.");
+      }
+
+      function getEngagementRecord(mediaId) {
+        const record = engagementState[mediaId];
+        if (!record || typeof record !== "object") {
+          return { liked: false, comments: [] };
+        }
+        const comments = Array.isArray(record.comments)
+          ? record.comments
+              .filter((comment) => comment && typeof comment.message === "string")
+              .map((comment) => ({
+                id: typeof comment.id === "string" ? comment.id : createCommentId(),
+                name: typeof comment.name === "string" ? comment.name : "",
+                message: comment.message,
+              }))
+          : [];
+        engagementState[mediaId] = {
+          liked: record.liked === true,
+          comments,
+        };
+        return {
+          liked: record.liked === true,
+          comments,
+        };
+      }
+
+      function createCommentId() {
+        return window.crypto && typeof window.crypto.randomUUID === "function"
+          ? window.crypto.randomUUID()
+          : `comment-${Date.now()}-${Math.random().toString(36).slice(2)}`;
+      }
+
+      function saveEngagement() {
+        try {
+          localStorage.setItem(engagementStorageKey, JSON.stringify(engagementState));
+          engagementStorageError = "";
+          return true;
+        } catch (error) {
+          engagementStorageError = error.message;
+          setEngagementStatus("Your change could not be saved in this browser and will be lost when you leave.");
+          return false;
+        }
+      }
+
+      function createEngagementPanel(mediaId, title, shareUrl) {
+        const panel = document.createElement("section");
+        const actions = document.createElement("div");
+        const likeButton = document.createElement("button");
+        const commentButton = document.createElement("button");
+        const shareButton = document.createElement("button");
+        const comments = document.createElement("div");
+        const commentList = document.createElement("ul");
+        const commentForm = document.createElement("form");
+        const nameInput = document.createElement("input");
+        const commentInput = document.createElement("textarea");
+        const submitComment = document.createElement("button");
+
+        panel.className = "engagement";
+        actions.className = "engagement-actions";
+        likeButton.className = "engagement-button";
+        likeButton.type = "button";
+        commentButton.className = "engagement-button";
+        commentButton.type = "button";
+        shareButton.className = "engagement-button";
+        shareButton.type = "button";
+        comments.className = "engagement-comments";
+        comments.hidden = true;
+        commentList.className = "comment-list";
+        commentForm.className = "comment-form";
+        nameInput.type = "text";
+        nameInput.name = "name";
+        nameInput.maxLength = 60;
+        nameInput.autocomplete = "name";
+        nameInput.placeholder = "Your name (optional)";
+        nameInput.setAttribute("aria-label", "Your name (optional)");
+        commentInput.name = "comment";
+        commentInput.required = true;
+        commentInput.maxLength = 500;
+        commentInput.placeholder = "Write a comment...";
+        commentInput.setAttribute("aria-label", `Comment on ${title}`);
+        submitComment.type = "submit";
+        submitComment.textContent = "Post Comment";
+
+        function renderRecord() {
+          const record = getEngagementRecord(mediaId);
+          likeButton.textContent = `${record.liked ? "♥ Liked" : "♡ Like"} · ${record.liked ? 1 : 0}`;
+          likeButton.setAttribute("aria-pressed", String(record.liked));
+          commentButton.textContent = `Comment · ${record.comments.length}`;
+          commentButton.setAttribute("aria-expanded", String(!comments.hidden));
+          commentList.replaceChildren();
+
+          record.comments.forEach((comment) => {
+            if (!comment || typeof comment.message !== "string") {
+              return;
+            }
+            const item = document.createElement("li");
+            const author = document.createElement("strong");
+            const deleteButton = document.createElement("button");
+            author.textContent = typeof comment.name === "string" && comment.name.trim()
+              ? comment.name
+              : "A visitor";
+            item.className = "comment-item";
+            deleteButton.className = "delete-comment";
+            deleteButton.type = "button";
+            deleteButton.textContent = "Delete";
+            deleteButton.setAttribute("aria-label", `Delete comment by ${author.textContent}`);
+            deleteButton.addEventListener("click", () => {
+              const updatedRecord = getEngagementRecord(mediaId);
+              updatedRecord.comments = updatedRecord.comments.filter(
+                (savedComment) => savedComment.id !== comment.id,
+              );
+              engagementState[mediaId] = updatedRecord;
+              const saved = saveEngagement();
+              renderRecord();
+              setEngagementStatus(
+                saved
+                  ? "The comment was deleted from this browser."
+                  : "The comment was removed for this visit, but the change could not be saved in this browser.",
+              );
+            });
+            item.append(author, document.createTextNode(comment.message), deleteButton);
+            commentList.append(item);
+          });
+        }
+
+        likeButton.addEventListener("click", () => {
+          const record = getEngagementRecord(mediaId);
+          record.liked = !record.liked;
+          engagementState[mediaId] = record;
+          if (saveEngagement()) {
+            setEngagementStatus("Your like was saved in this browser.");
+          }
+          renderRecord();
+        });
+
+        commentButton.addEventListener("click", () => {
+          comments.hidden = !comments.hidden;
+          commentButton.setAttribute("aria-expanded", String(!comments.hidden));
+          if (!comments.hidden) {
+            commentInput.focus();
+          }
+        });
+
+        commentForm.addEventListener("submit", (event) => {
+          event.preventDefault();
+          const message = commentInput.value.trim();
+          if (!message) {
+            commentInput.focus();
+            return;
+          }
+          const record = getEngagementRecord(mediaId);
+          record.comments.unshift({
+            id: createCommentId(),
+            name: nameInput.value.trim(),
+            message,
+          });
+          engagementState[mediaId] = record;
+          const saved = saveEngagement();
+          renderRecord();
+          commentForm.reset();
+          setEngagementStatus(
+            saved
+              ? "Your comment was added and saved in this browser."
+              : "Your comment was added for this visit, but could not be saved in this browser.",
+          );
+        });
+
+        shareButton.addEventListener("click", async () => {
+          const url = new URL(shareUrl, window.location.href).href;
+          try {
+            if (navigator.share) {
+              await navigator.share({ title, text: `View ${title}`, url });
+              setEngagementStatus("Gallery item shared.");
+              return;
+            }
+            if (navigator.clipboard) {
+              await navigator.clipboard.writeText(url);
+              setEngagementStatus("Gallery link copied. You can now share it.");
+              return;
+            }
+            window.prompt("Copy this gallery link to share:", url);
+            setEngagementStatus("Copy the gallery link to share this item.");
+          } catch (error) {
+            if (error.name === "AbortError") {
+              return;
+            }
+            if (navigator.clipboard) {
+              try {
+                await navigator.clipboard.writeText(url);
+                setEngagementStatus("Gallery link copied. You can now share it.");
+                return;
+              } catch (clipboardError) {
+                window.prompt("Copy this gallery link to share:", url);
+                setEngagementStatus("Copy the gallery link to share this item.");
+              }
+            } else {
+              window.prompt("Copy this gallery link to share:", url);
+              setEngagementStatus("Copy the gallery link to share this item.");
+            }
+          }
+        });
+
+        likeButton.setAttribute("aria-label", `Like ${title}`);
+        commentButton.setAttribute("aria-label", `Show comments for ${title}`);
+        shareButton.setAttribute("aria-label", `Share ${title}`);
+        shareButton.textContent = "↗ Share";
+        actions.append(likeButton, commentButton, shareButton);
+        commentForm.append(nameInput, commentInput, submitComment);
+        comments.append(commentList, commentForm);
+        panel.append(actions, comments);
+        renderRecord();
+        return panel;
+      }
+
+      function getCategory(filename) {
+        if (/(poster|tribute|quote|sermon|intentions|profile)/i.test(filename)) {
+          return "tributes";
+        }
+        if (/^gallery-(?!(?:portrait|\d))/i.test(filename)) {
+          return "events";
+        }
+        return "photos";
+      }
+
+      document.querySelectorAll(".gallery-item").forEach((link) => {
+        const image = link.querySelector("img");
+        const filename = decodeURIComponent(link.getAttribute("href").split("/").pop());
+        const alt = image.alt;
+        const category = getCategory(filename);
+        const title = featuredTitles.get(filename) || alt;
+        const mediaId = `gallery-image-${filename.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
+        const card = document.createElement("article");
+        const badge = document.createElement("span");
+        const copy = document.createElement("div");
+        const heading = document.createElement("h2");
+        const description = document.createElement("p");
+        const messageLink = document.createElement("a");
+
+        card.className = "gallery-card gallery-item";
+        card.id = mediaId;
+        card.dataset.category = category;
+        card.dataset.search = `${title} ${alt}`.toLowerCase();
+        link.classList.remove("gallery-item", "image-item");
+        link.classList.add("gallery-photo");
+        badge.className = "photo-type";
+        badge.textContent = category === "tributes" ? "Tribute" : category === "events" ? "Event" : "Photo";
+        copy.className = "gallery-card-copy";
+        heading.textContent = title;
+        description.textContent = alt;
+        messageLink.className = "gallery-card-link";
+        messageLink.href = "messages.html#send-message";
+        messageLink.textContent = "Leave a birthday message →";
+
+        link.append(badge);
+        copy.append(heading, description, messageLink);
+        link.parentElement.insertBefore(card, link);
+        card.append(link, copy);
+        card.append(createEngagementPanel(mediaId, title, `#${mediaId}`));
       });
+
+      document.querySelectorAll(".video-item").forEach((video, index) => {
+        video.classList.add("gallery-video");
+        const videoSource = video.querySelector("source").getAttribute("src");
+        const videoFilename = decodeURIComponent(videoSource.split("/").pop());
+        const mediaId = `gallery-video-${videoFilename.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
+        const title = `Birthday celebration video ${index + 1}`;
+        video.id = mediaId;
+        video.dataset.category = "videos";
+        video.dataset.search = title.toLowerCase();
+        const caption = video.querySelector(".video-caption");
+        caption.textContent = title;
+        video.append(createEngagementPanel(mediaId, title, `#${mediaId}`));
+        galleryGrid.append(video);
+      });
+
+      galleryGrid.append(emptyState);
+      const allItems = [...galleryGrid.querySelectorAll(".gallery-item, .video-item")];
+      if (engagementStorageError && !engagementStatus.textContent) {
+        setEngagementStatus("Likes and comments could not be saved in this browser.");
+      }
+
+      function updateGallery() {
+        const selectedFilter = document.querySelector(".filter-chip[aria-pressed='true']").dataset.filter;
+        const searchTerm = searchInput.value.trim().toLowerCase();
+        let visibleCount = 0;
+
+        allItems.forEach((item) => {
+          const matchesFilter =
+            selectedFilter === "all" ||
+            (selectedFilter === "images" && item.classList.contains("gallery-card")) ||
+            (selectedFilter === "videos" && item.classList.contains("video-item"));
+          const matchesSearch = !searchTerm || item.dataset.search.includes(searchTerm);
+          const isVisible = matchesFilter && matchesSearch;
+          item.classList.toggle("is-hidden", !isVisible);
+          visibleCount += Number(isVisible);
+        });
+
+        emptyState.hidden = visibleCount > 0;
+      }
+
+      filterButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          filterButtons.forEach((filterButton) => {
+            filterButton.setAttribute("aria-pressed", String(filterButton === button));
+          });
+          updateGallery();
+        });
+      });
+      searchInput.addEventListener("input", updateGallery);
+      updateGallery();
     </script>
 
     <footer>
-      Created with love in celebration of <strong>Archbishop Emmah Gospel Isong</strong> ·
-      <time datetime="2026-10-26">26 October 2026</time>
+      <strong>Archbishop Dr. Emmah Gospel Isong</strong>
+      <span>Celebrating a life of faith, service and impact.</span>
+      <a href="index.html#top">↑ Back to Home</a>
     </footer>
   </body>
 </html>
