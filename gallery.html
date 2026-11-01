@@ -646,6 +646,7 @@
       .engagement-status[hidden] { display: none; }
 
       .engagement {
+        visibility: hidden;
         padding: 0 10px 10px;
         font-family: Arial, Helvetica, sans-serif;
       }
@@ -658,13 +659,13 @@
       }
 
       .engagement-button {
-        min-height: 27px;
-        padding: 4px 9px;
+        min-height: 42px;
+        padding: 8px 13px;
         border: 1px solid #5b4926;
         border-radius: 16px;
         background: #090c10;
         color: #e8dfcc;
-        font: 10px Arial, Helvetica, sans-serif;
+        font: 12px Arial, Helvetica, sans-serif;
         cursor: pointer;
       }
 
@@ -682,6 +683,8 @@
       }
 
       .engagement-comments[hidden] { display: none; }
+
+      .comment-list:empty { display: none; }
 
       .comment-list {
         display: grid;
@@ -708,23 +711,6 @@
         color: #f1d275;
       }
 
-      .delete-comment {
-        margin-top: 5px;
-        padding: 3px 7px;
-        border: 1px solid #6b3b32;
-        border-radius: 12px;
-        background: #160c0a;
-        color: #f0b3a5;
-        font: 9px Arial, Helvetica, sans-serif;
-        cursor: pointer;
-      }
-
-      .delete-comment:hover,
-      .delete-comment:focus-visible {
-        border-color: #ef9c88;
-        color: #ffd1c5;
-      }
-
       .comment-form {
         display: grid;
         gap: 6px;
@@ -749,13 +735,26 @@
 
       .comment-form button {
         justify-self: start;
-        padding: 6px 11px;
+        min-height: 42px;
+        padding: 8px 14px;
         border: 1px solid #a07a2c;
         border-radius: 15px;
         background: #171309;
         color: #f1d275;
-        font: 10px Arial, Helvetica, sans-serif;
+        font: 12px Arial, Helvetica, sans-serif;
         cursor: pointer;
+      }
+
+      .engagement-button:disabled,
+      .comment-form button:disabled {
+        cursor: wait;
+        opacity: 0.65;
+      }
+
+      .comment-empty {
+        margin: 0 0 9px;
+        color: #bdb8ac;
+        font: 11px/1.4 Arial, Helvetica, sans-serif;
       }
 
       .gallery-video {
@@ -866,7 +865,7 @@
             <input id="gallery-search" type="search" placeholder="Search gallery..." aria-label="Search gallery" />
           </label>
         </div>
-        <p class="engagement-note">Likes and comments are saved in this browser only. You can delete comments saved here. Use Share to send a gallery link to others.</p>
+        <p class="engagement-note">Likes and comments are shared with visitors on this gallery. Your anonymous visitor identity is kept in this browser. Use Share to send a gallery link to others.</p>
         <p class="engagement-status" id="engagement-status" role="status" aria-live="polite" hidden></p>
         <div class="gallery-grid" id="gallery-grid">
           <a class="gallery-item image-item" href="assets/gallery-1.jpg" target="_blank" rel="noopener">
@@ -1197,10 +1196,6 @@
       const filterButtons = document.querySelectorAll(".filter-chip");
       const searchInput = document.getElementById("gallery-search");
       const emptyState = document.getElementById("gallery-empty");
-      const engagementStatus = document.getElementById("engagement-status");
-      const engagementStorageKey = "birthday-gallery-engagement-v1";
-      let engagementState = {};
-      let engagementStorageError = "";
       const featuredTitles = new Map([
         ["gallery-1.jpg", "A Man of God, A Blessing to Many"],
         ["gallery-2.jpg", "The Journey of Faith"],
@@ -1209,237 +1204,6 @@
         ["gallery-family-cake.png", "Celebrating 62 Years"],
         ["gallery-birthday-guests.png", "With Friends and Well-Wishers"],
       ]);
-
-      function setEngagementStatus(message) {
-        engagementStatus.textContent = message;
-        engagementStatus.hidden = !message;
-      }
-
-      try {
-        const savedEngagement = localStorage.getItem(engagementStorageKey);
-        if (savedEngagement) {
-          const parsedEngagement = JSON.parse(savedEngagement);
-          if (!parsedEngagement || typeof parsedEngagement !== "object" || Array.isArray(parsedEngagement)) {
-            throw new Error("Saved gallery interactions have an invalid format.");
-          }
-          engagementState = parsedEngagement;
-        }
-      } catch (error) {
-        engagementStorageError = error.message;
-        setEngagementStatus("Saved likes and comments could not be loaded. New interactions may not be saved.");
-      }
-
-      function getEngagementRecord(mediaId) {
-        const record = engagementState[mediaId];
-        if (!record || typeof record !== "object") {
-          return { liked: false, comments: [] };
-        }
-        const comments = Array.isArray(record.comments)
-          ? record.comments
-              .filter((comment) => comment && typeof comment.message === "string")
-              .map((comment) => ({
-                id: typeof comment.id === "string" ? comment.id : createCommentId(),
-                name: typeof comment.name === "string" ? comment.name : "",
-                message: comment.message,
-              }))
-          : [];
-        engagementState[mediaId] = {
-          liked: record.liked === true,
-          comments,
-        };
-        return {
-          liked: record.liked === true,
-          comments,
-        };
-      }
-
-      function createCommentId() {
-        return window.crypto && typeof window.crypto.randomUUID === "function"
-          ? window.crypto.randomUUID()
-          : `comment-${Date.now()}-${Math.random().toString(36).slice(2)}`;
-      }
-
-      function saveEngagement() {
-        try {
-          localStorage.setItem(engagementStorageKey, JSON.stringify(engagementState));
-          engagementStorageError = "";
-          return true;
-        } catch (error) {
-          engagementStorageError = error.message;
-          setEngagementStatus("Your change could not be saved in this browser and will be lost when you leave.");
-          return false;
-        }
-      }
-
-      function createEngagementPanel(mediaId, title, shareUrl) {
-        const panel = document.createElement("section");
-        const actions = document.createElement("div");
-        const likeButton = document.createElement("button");
-        const commentButton = document.createElement("button");
-        const shareButton = document.createElement("button");
-        const comments = document.createElement("div");
-        const commentList = document.createElement("ul");
-        const commentForm = document.createElement("form");
-        const nameInput = document.createElement("input");
-        const commentInput = document.createElement("textarea");
-        const submitComment = document.createElement("button");
-
-        panel.className = "engagement";
-        actions.className = "engagement-actions";
-        likeButton.className = "engagement-button";
-        likeButton.type = "button";
-        commentButton.className = "engagement-button";
-        commentButton.type = "button";
-        shareButton.className = "engagement-button";
-        shareButton.type = "button";
-        comments.className = "engagement-comments";
-        comments.hidden = true;
-        commentList.className = "comment-list";
-        commentForm.className = "comment-form";
-        nameInput.type = "text";
-        nameInput.name = "name";
-        nameInput.maxLength = 60;
-        nameInput.autocomplete = "name";
-        nameInput.placeholder = "Your name (optional)";
-        nameInput.setAttribute("aria-label", "Your name (optional)");
-        commentInput.name = "comment";
-        commentInput.required = true;
-        commentInput.maxLength = 500;
-        commentInput.placeholder = "Write a comment...";
-        commentInput.setAttribute("aria-label", `Comment on ${title}`);
-        submitComment.type = "submit";
-        submitComment.textContent = "Post Comment";
-
-        function renderRecord() {
-          const record = getEngagementRecord(mediaId);
-          likeButton.textContent = `${record.liked ? "♥ Liked" : "♡ Like"} · ${record.liked ? 1 : 0}`;
-          likeButton.setAttribute("aria-pressed", String(record.liked));
-          commentButton.textContent = `Comment · ${record.comments.length}`;
-          commentButton.setAttribute("aria-expanded", String(!comments.hidden));
-          commentList.replaceChildren();
-
-          record.comments.forEach((comment) => {
-            if (!comment || typeof comment.message !== "string") {
-              return;
-            }
-            const item = document.createElement("li");
-            const author = document.createElement("strong");
-            const deleteButton = document.createElement("button");
-            author.textContent = typeof comment.name === "string" && comment.name.trim()
-              ? comment.name
-              : "A visitor";
-            item.className = "comment-item";
-            deleteButton.className = "delete-comment";
-            deleteButton.type = "button";
-            deleteButton.textContent = "Delete";
-            deleteButton.setAttribute("aria-label", `Delete comment by ${author.textContent}`);
-            deleteButton.addEventListener("click", () => {
-              const updatedRecord = getEngagementRecord(mediaId);
-              updatedRecord.comments = updatedRecord.comments.filter(
-                (savedComment) => savedComment.id !== comment.id,
-              );
-              engagementState[mediaId] = updatedRecord;
-              const saved = saveEngagement();
-              renderRecord();
-              setEngagementStatus(
-                saved
-                  ? "The comment was deleted from this browser."
-                  : "The comment was removed for this visit, but the change could not be saved in this browser.",
-              );
-            });
-            item.append(author, document.createTextNode(comment.message), deleteButton);
-            commentList.append(item);
-          });
-        }
-
-        likeButton.addEventListener("click", () => {
-          const record = getEngagementRecord(mediaId);
-          record.liked = !record.liked;
-          engagementState[mediaId] = record;
-          if (saveEngagement()) {
-            setEngagementStatus("Your like was saved in this browser.");
-          }
-          renderRecord();
-        });
-
-        commentButton.addEventListener("click", () => {
-          comments.hidden = !comments.hidden;
-          commentButton.setAttribute("aria-expanded", String(!comments.hidden));
-          if (!comments.hidden) {
-            commentInput.focus();
-          }
-        });
-
-        commentForm.addEventListener("submit", (event) => {
-          event.preventDefault();
-          const message = commentInput.value.trim();
-          if (!message) {
-            commentInput.focus();
-            return;
-          }
-          const record = getEngagementRecord(mediaId);
-          record.comments.unshift({
-            id: createCommentId(),
-            name: nameInput.value.trim(),
-            message,
-          });
-          engagementState[mediaId] = record;
-          const saved = saveEngagement();
-          renderRecord();
-          commentForm.reset();
-          setEngagementStatus(
-            saved
-              ? "Your comment was added and saved in this browser."
-              : "Your comment was added for this visit, but could not be saved in this browser.",
-          );
-        });
-
-        shareButton.addEventListener("click", async () => {
-          const url = new URL(shareUrl, window.location.href).href;
-          try {
-            if (navigator.share) {
-              await navigator.share({ title, text: `View ${title}`, url });
-              setEngagementStatus("Gallery item shared.");
-              return;
-            }
-            if (navigator.clipboard) {
-              await navigator.clipboard.writeText(url);
-              setEngagementStatus("Gallery link copied. You can now share it.");
-              return;
-            }
-            window.prompt("Copy this gallery link to share:", url);
-            setEngagementStatus("Copy the gallery link to share this item.");
-          } catch (error) {
-            if (error.name === "AbortError") {
-              return;
-            }
-            if (navigator.clipboard) {
-              try {
-                await navigator.clipboard.writeText(url);
-                setEngagementStatus("Gallery link copied. You can now share it.");
-                return;
-              } catch (clipboardError) {
-                window.prompt("Copy this gallery link to share:", url);
-                setEngagementStatus("Copy the gallery link to share this item.");
-              }
-            } else {
-              window.prompt("Copy this gallery link to share:", url);
-              setEngagementStatus("Copy the gallery link to share this item.");
-            }
-          }
-        });
-
-        likeButton.setAttribute("aria-label", `Like ${title}`);
-        commentButton.setAttribute("aria-label", `Show comments for ${title}`);
-        shareButton.setAttribute("aria-label", `Share ${title}`);
-        shareButton.textContent = "↗ Share";
-        actions.append(likeButton, commentButton, shareButton);
-        commentForm.append(nameInput, commentInput, submitComment);
-        comments.append(commentList, commentForm);
-        panel.append(actions, comments);
-        renderRecord();
-        return panel;
-      }
 
       function getCategory(filename) {
         if (/(poster|tribute|quote|sermon|intentions|profile)/i.test(filename)) {
@@ -1484,7 +1248,6 @@
         copy.append(heading, description, messageLink);
         link.parentElement.insertBefore(card, link);
         card.append(link, copy);
-        card.append(createEngagementPanel(mediaId, title, `#${mediaId}`));
       });
 
       document.querySelectorAll(".video-item").forEach((video, index) => {
@@ -1498,15 +1261,11 @@
         video.dataset.search = title.toLowerCase();
         const caption = video.querySelector(".video-caption");
         caption.textContent = title;
-        video.append(createEngagementPanel(mediaId, title, `#${mediaId}`));
         galleryGrid.append(video);
       });
 
       galleryGrid.append(emptyState);
       const allItems = [...galleryGrid.querySelectorAll(".gallery-item, .video-item")];
-      if (engagementStorageError && !engagementStatus.textContent) {
-        setEngagementStatus("Likes and comments could not be saved in this browser.");
-      }
 
       function updateGallery() {
         const selectedFilter = document.querySelector(".filter-chip[aria-pressed='true']").dataset.filter;
@@ -1538,6 +1297,11 @@
       searchInput.addEventListener("input", updateGallery);
       updateGallery();
     </script>
+    <script
+      type="module"
+      src="gallery-engagement.js"
+      onerror="const message = document.getElementById('engagement-status'); message.textContent = 'Gallery likes and comments could not load. Check your internet connection and reload the page.'; message.hidden = false"
+    ></script>
 
     <footer>
       <strong>Archbishop Dr. Emmah Gospel Isong</strong>
