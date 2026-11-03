@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Photographs celebrating Archbishop Emmah Gospel Isong's life and 62nd birthday."
+      content="Explore photographs and videos documenting the life and ministry of Archbishop Emmah Isong, including his 62nd birthday celebration."
     />
     <script src="navigation.js" defer></script>
-    <title>Birthday Gallery — Archbishop Emmah Gospel Isong</title>
+    <title>Gallery — Life and Ministry of Archbishop Emmah Isong</title>
     <style>
       :root {
         color-scheme: dark;
@@ -183,6 +183,59 @@
       .gallery-grid .gallery-poster {
         object-fit: contain;
         background: #14120e;
+      }
+
+      .image-viewer {
+        position: relative;
+        width: min(1100px, calc(100vw - 32px));
+        max-width: none;
+        max-height: calc(100vh - 32px);
+        padding: 48px 20px 20px;
+        border: 1px solid #75551c;
+        background: #090909;
+        color: var(--cream);
+      }
+
+      .image-viewer::backdrop {
+        background: rgba(0, 0, 0, 0.92);
+      }
+
+      .image-viewer figure {
+        margin: 0;
+        text-align: center;
+      }
+
+      .image-viewer img {
+        display: block;
+        width: auto;
+        max-width: 100%;
+        max-height: calc(100vh - 120px);
+        margin: 0 auto;
+        object-fit: contain;
+      }
+
+      .image-viewer figcaption {
+        margin-top: 12px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .image-viewer-close {
+        position: absolute;
+        top: 8px;
+        right: 10px;
+        padding: 4px 10px;
+        border: 1px solid #75551c;
+        background: transparent;
+        color: var(--cream);
+        font: inherit;
+        font-size: 24px;
+        cursor: pointer;
+      }
+
+      .image-viewer-close:hover,
+      .image-viewer-close:focus-visible {
+        color: var(--bright-gold);
       }
 
       .gallery-video {
@@ -830,7 +883,7 @@
   <body>
     <header class="site-header">
       <nav class="nav-wrap" aria-label="Main navigation">
-       <a class="brand" href="index.html#top">A Birthday Tribute</a>
+        <a class="brand" href="index.html#top">Life and Ministry of Archbishop Emmah Isong</a>
         <button class="menu-toggle" type="button" aria-controls="primary-navigation" aria-expanded="false" aria-label="Open navigation menu">
           <span class="menu-icon" aria-hidden="true"></span>
           Menu
@@ -1191,11 +1244,22 @@
     </main>
 
     <p class="gallery-empty" id="gallery-empty" hidden>No gallery items match your search.</p>
+    <dialog class="image-viewer" id="image-viewer" aria-label="Full-size gallery image">
+      <button class="image-viewer-close" type="button" aria-label="Close image viewer">×</button>
+      <figure>
+        <img alt="" />
+        <figcaption></figcaption>
+      </figure>
+    </dialog>
     <script>
       const galleryGrid = document.getElementById("gallery-grid");
       const filterButtons = document.querySelectorAll(".filter-chip");
       const searchInput = document.getElementById("gallery-search");
       const emptyState = document.getElementById("gallery-empty");
+      const imageViewer = document.getElementById("image-viewer");
+      const viewerImage = imageViewer.querySelector("img");
+      const viewerCaption = imageViewer.querySelector("figcaption");
+      const closeImageViewer = imageViewer.querySelector(".image-viewer-close");
       const featuredTitles = new Map([
         ["gallery-1.jpg", "A Man of God, A Blessing to Many"],
         ["gallery-2.jpg", "The Journey of Faith"],
@@ -1204,6 +1268,36 @@
         ["gallery-family-cake.png", "Celebrating 62 Years"],
         ["gallery-birthday-guests.png", "With Friends and Well-Wishers"],
       ]);
+
+      galleryGrid.addEventListener("click", (event) => {
+        if (!(event.target instanceof Element)) {
+          return;
+        }
+
+        const photoLink = event.target.closest("a.gallery-photo");
+        if (!photoLink || !galleryGrid.contains(photoLink)) {
+          return;
+        }
+
+        event.preventDefault();
+        const image = photoLink.querySelector("img");
+        viewerImage.src = photoLink.href;
+        viewerImage.alt = image.alt;
+        viewerCaption.textContent = image.alt;
+        imageViewer.showModal();
+      });
+
+      closeImageViewer.addEventListener("click", () => imageViewer.close());
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && imageViewer.open) {
+          imageViewer.close();
+        }
+      });
+      imageViewer.addEventListener("click", (event) => {
+        if (event.target === imageViewer) {
+          imageViewer.close();
+        }
+      });
 
       function getCategory(filename) {
         if (/(poster|tribute|quote|sermon|intentions|profile)/i.test(filename)) {
@@ -1305,7 +1399,7 @@
 
     <footer>
       <strong>Archbishop Dr. Emmah Gospel Isong</strong>
-      <span>Celebrating a life of faith, service and impact.</span>
+      <span>Life and Ministry of Archbishop Emmah Isong</span>
       <a href="index.html#top">↑ Back to Home</a>
     </footer>
   </body>

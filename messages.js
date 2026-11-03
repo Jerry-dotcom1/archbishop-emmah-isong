@@ -132,5 +132,22 @@ From your Servant in Christ's service and that Disciple whom Jesus Loves,
 
 On behalf of the Nelson Ekanem Family`,
   },
+  {
+    name: "Bishop Dr Andy Sokari Ogbu",
+    message: `His Eminence, my special brother and friend.
 
+There are people like you who give us strength and courage that we need to face the day-to-day problems. You walk and work as a lion, demonstrating capacity at all times.
+
+I look at you, my brother, and I am proud. Don't forget how you gave me dollars on my way back from Ikom on preaching assignment to Lagos. On another occasion, you invited me to the Emerging Global monthly Morning Dew programme. What of the birthday cash you sent to my little twin daughter at the age of 15 years? She is now in university.
+
+Today, I look at you and listen to the tenacity and incredible revelations you preached, notwithstanding so many battles you fought. I found you a complete winner standing there with a lot of faith. Nobody knocks you down because God is the one sustaining you.
+
+You are a brother, very humble to relate with even people that are far below your level in life. I thank God for a genuine brother and warrior like you.
+
+Happy Brothers' Month. Strong hug, and may God richly bless you, your family, and those wonderful grandchildren in Jesus' name.
+
+Bishop Dr Andy Sokari Ogbu
+Dominion Life Centre
+Lagos.`,
+  },
 ];
