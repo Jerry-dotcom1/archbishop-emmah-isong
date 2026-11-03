@@ -9,6 +9,7 @@
     />
     <meta name="google-site-verification" content="F0ZgJdll4EHUSBwyTE3fVfIZc5yK-J_B5XkxycdyUsE" />
     <script src="navigation.js" defer></script>
+    <link rel="icon" type="image/png" href="assets/archbishop-emmah-logo.png" />
     <title>Life and Ministry of Archbishop Emmah Isong</title>
     <style>
       :root {
@@ -74,8 +75,25 @@
       }
 
       .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
         color: var(--bright-gold);
         letter-spacing: 1.4px;
+      }
+
+      .brand-logo {
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 1px solid rgba(244, 217, 142, 0.8);
+        background: #000;
+        box-shadow: 0 0 0 2px rgba(214, 173, 80, 0.24);
+      }
+
+      .brand-text {
+        white-space: nowrap;
       }
 
       .nav-links {
@@ -580,7 +598,10 @@
   <body id="top">
     <header class="site-header">
       <nav class="nav-wrap" aria-label="Main navigation">
-        <a class="brand" href="#top">Life and Ministry of Archbishop Emmah Isong</a>
+        <a class="brand" href="#top" aria-label="Life and Ministry of Archbishop Emmah Isong">
+          <img class="brand-logo" src="assets/archbishop-emmah-logo.png" alt="Archbishop Emmah Isong Logo" />
+          <span class="brand-text">Life and Ministry of Archbishop Emmah Isong</span>
+        </a>
         <button class="menu-toggle" type="button" aria-controls="primary-navigation" aria-expanded="false" aria-label="Open navigation menu">
           <span class="menu-icon" aria-hidden="true"></span>
           Menu

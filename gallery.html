@@ -8,6 +8,7 @@
       content="Explore photographs and videos documenting the life and ministry of Archbishop Emmah Isong, including his 62nd birthday celebration."
     />
     <script src="navigation.js" defer></script>
+    <link rel="icon" type="image/png" href="assets/archbishop-emmah-logo.png" />
     <title>Gallery — Life and Ministry of Archbishop Emmah Isong</title>
     <style>
       :root {
@@ -439,9 +440,9 @@
       }
 
       .brand {
-        display: flex;
+        display: inline-flex;
         align-items: center;
-        gap: 9px;
+        gap: 10px;
         min-width: 235px;
         color: var(--bright-gold);
         font-family: Georgia, "Times New Roman", serif;
@@ -452,20 +453,18 @@
         text-transform: none;
       }
 
-      .brand-mark {
-        color: #f0c64e;
-        font-size: 28px;
+      .brand-logo {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 1px solid rgba(244, 217, 142, 0.8);
+        background: #000;
+        box-shadow: 0 0 0 2px rgba(214, 173, 80, 0.24);
       }
 
-      .brand-copy {
-        display: grid;
-        gap: 3px;
-      }
-
-      .brand-copy small {
-        color: #e6dece;
-        font: 8px Arial, Helvetica, sans-serif;
-        letter-spacing: 1px;
+      .brand-text {
+        white-space: nowrap;
       }
 
       .nav-links {
@@ -883,7 +882,10 @@
   <body>
     <header class="site-header">
       <nav class="nav-wrap" aria-label="Main navigation">
-        <a class="brand" href="index.html#top">Life and Ministry of Archbishop Emmah Isong</a>
+        <a class="brand" href="index.html#top" aria-label="Life and Ministry of Archbishop Emmah Isong">
+          <img class="brand-logo" src="assets/archbishop-emmah-logo.png" alt="Archbishop Emmah Isong Logo" />
+          <span class="brand-text">Life and Ministry of Archbishop Emmah Isong</span>
+        </a>
         <button class="menu-toggle" type="button" aria-controls="primary-navigation" aria-expanded="false" aria-label="Open navigation menu">
           <span class="menu-icon" aria-hidden="true"></span>
           Menu
